@@ -1,12 +1,8 @@
-# Заголовок первого уровня #
-
-### Заголовок третьего уровня ###
-
-###### Заголовок шестого уровня ######
+# GitHub #
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+[Andrey's GitHub](./[another-page]https://github.com/andreymikhit).
 
 There should be whitespace between paragraphs.
 
