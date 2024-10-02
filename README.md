@@ -2,8 +2,8 @@
 
 [Andrey's GitHub page](https://github.com/andreymikhit).
 
-Jekyll hopage set-up
 ---
+### Jekyll homepage set-up
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
