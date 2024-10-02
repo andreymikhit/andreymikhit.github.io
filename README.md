@@ -2,9 +2,7 @@
 
 [Andrey's GitHub page](https://github.com/andreymikhit).
 
-# Under construction ...
-
-🚧 👷‍♂️
+# Under construction ... 🚧 👷‍♂️
 
 ---
 ### Jekyll homepage set-up
