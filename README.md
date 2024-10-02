@@ -1,8 +1,11 @@
 # GitHub #
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+[Andrey's GitHub page](./[another-page]https://github.com/andreymikhit).
 
-[Andrey's GitHub](./[another-page]https://github.com/andreymikhit).
+Jekyll hopage set-up
+---
+
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 There should be whitespace between paragraphs.
 
