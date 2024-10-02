@@ -1,3 +1,5 @@
 theme: jekyll-theme-minimal
 title: Andrey's homepage
 description: Bookmark this to keep an eye on my project updates!
+
+<h1 class=mb-0>Контакты</h1></div><div class="col-12 col-lg-8"><div class=mb-3><form name=contact method=POST netlify netlify-honeypot=_gotcha><div class="form-group form-inline"><label class=sr-only for=inputName>Имя</label>
