@@ -1,6 +1,6 @@
 # GitHub #
 
-[Andrey's GitHub page](./[another-page]https://github.com/andreymikhit).
+[Andrey's GitHub page](https://github.com/andreymikhit).
 
 Jekyll hopage set-up
 ---
