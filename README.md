@@ -2,20 +2,6 @@
 web
 
 
-<form name="contact" netlify>
-  <p>
-    <label>Name <input type="text" name="name" /></label>
-  </p>
-  <p>
-    <label>Email <input type="email" name="email" /></label>
-  </p>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
-
-
-
 
 <div class="col-12 col-lg-8"><div class="mb-3"><form name="contact" method="POST" netlify="" netlify-honeypot="_gotcha"><div class="form-group form-inline"><label class="sr-only" for="inputName">Имя</label>
 <input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Имя" required=""></div><div class="form-group form-inline"><label class="sr-only" for="inputEmail">адрес электронной почты</label>
