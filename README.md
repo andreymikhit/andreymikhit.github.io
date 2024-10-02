@@ -3,6 +3,9 @@
 [Andrey's GitHub page](https://github.com/andreymikhit).
 
 # Under construction ...
+
+![image](https://github.com/user-attachments/assets/6be0aad4-d45f-444f-921d-957865053967)
+
 ---
 ### Jekyll homepage set-up
 
