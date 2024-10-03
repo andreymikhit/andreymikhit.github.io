@@ -66,7 +66,7 @@
         <h3>Header and global navigation</h3>
         <pre><code>&lt;header&gt;
 &lt;nav&gt;
-  &lt;a href=&quot;https://www.netlify.com/&quot;&gt;&lt;img src=&quot;/images/logo-netlify-small-monochrome-darkmode.svg&quot; alt=&quot;Netlify&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;https://www.netlify.com/&quot;&gt;&lt;img src=&quot;/public/images/logo-netlify-small-monochrome-darkmode.svg&quot; alt=&quot;Netlify&quot;&gt;&lt;/a&gt;
   &lt;ul&gt;
     &lt;li&gt;Active page&lt;/li&gt;
     &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Navigation&lt;/a&gt;&lt;/li&gt;
@@ -78,10 +78,10 @@
 &lt;/section&gt;
 &lt;/header&gt;</code></pre>
 
-<!--       
+
       <header>
         <nav>
-          <a href="https://www.netlify.com/"><img src="/images/logo-netlify-small-monochrome-darkmode.svg" alt="Netlify"></a>
+          <a href="https://www.netlify.com/"><img src="/public/images/logo-netlify-small-monochrome-darkmode.svg" alt="Netlify"></a>
           <ul>
             <li>Active page</li>
             <li><a href="/">Navigation</a></li>
@@ -91,40 +91,33 @@
           <h1>Example title</h1>
           <p>Short description of example</p>
         </section>
-      </header> -->
+      </header>
       </section>
         
       
-	<!-- Contact form captcha
-	-->
-
-<form name="contact" method="POST" netlify="" netlify-honeypot="_gotcha" action="/pages/success">
-<div class="form-group form-inline"><label class="sr-only" for="inputName">Your name</label><input type="text" name="name" class="form-control w-100" id="inputName" placeholder="Имя" required=""></div>
-	<div class="form-group form-inline"><label class="sr-only" for="inputEmail">Your Email</label>
-<input type="email" name="email" class="form-control w-100" id="inputEmail" placeholder="адрес электронной почты" required=""></div><div class="form-group"><label class="sr-only" for="inputMessage">Сообщение</label>
-<textarea name="message" class="form-control" id="inputMessage" rows="5" placeholder="Сообщение" required=""></textarea></div>
-<div class="d-none"><label>Do not fill this field unless you are a bot: <input name="_gotcha"></label></div>
-<button type="submit" class="btn btn-primary px-3 py-2 w-100">Send</button>
-</form>
-
-	
-
 <!-- Contact form
+	<form name="contact" method="POST" netlify="" netlify-honeypot="_gotcha">
+	...
+	<label>Do not fill this field unless you are a bot: <input name="_gotcha">
 	-->
 	    
-<form name="contact" method="POST" netlify action="/pages/success">
+<form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true" action="/pages/success">
   <p>
-    <label>Name <input type="text" name="name" /></label>
+    <label>Name <input type="text" name="name" placeholder="Имя" required=""/></label>
   </p>
   <p>
-    <label>Email <input type="email" name="email" /></label>
+    <label>Email <input type="email" name="email" placeholder="Адрес электронной почты" required=""/></label>
   </p>
-    <label>Message: <textarea name="message"></textarea></label>
-  <p>
+    <label>Message: <textarea name="message" rows="10" placeholder="Сообщение" required=""></textarea></label>
+  <p>	  
     <button type="submit">Send</button>
   </p>
+  <p class="hidden">
+    <label>
+      Don’t fill this out if you’re human: <input name="bot-field" />
+    </label>
+  </p>	
 </form>
-
 	
 
     </main>
