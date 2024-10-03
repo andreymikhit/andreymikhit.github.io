@@ -1,6 +1,0 @@
-export default defineNuxtConfig({
-    routeRules: {
-        "/**": { swr: 3600 },
-        "/api/test": { swr: false, cache: false },
-    },
-})
