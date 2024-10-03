@@ -118,6 +118,7 @@ end
 	...
 	<label>Do not fill this field unless you are a bot: <input name="_gotcha">
 	-->
+<html>
 <form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true" action="/pages/success">
   <p>
     <label>Name <input type="text" name="name" rows="20" placeholder="Имя" required=""/></label>
@@ -133,7 +134,7 @@ end
     <button type="submit">Send</button>
   </p>
 </form>
-
+</html>
 
 
 ```
