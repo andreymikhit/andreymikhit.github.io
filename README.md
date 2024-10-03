@@ -122,6 +122,26 @@ end
 	<label>Do not fill this field unless you are a bot: <input name="_gotcha">
 	-->
 
+
+
+ <html>	    
+<form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true" action="/pages/success">
+  <p>
+    <label>Name <input type="text" name="name" rows="20" placeholder="Имя" required=""/></label>
+  </p>
+  <p>
+    <label>Email <input type="email" name="email" rows="20" placeholder="Адрес электронной почты" required=""/></label>
+  </p>
+    <label>Message: <textarea name="message" rows="8" cols="40" placeholder="Сообщение" required=""></textarea></label>
+  </p>
+  <p class="hidden">
+    <label>Don’t fill this out <input name="bot-field" placeholder="... if you’re human" rows="20"/></label>
+  </p>	
+    <button type="submit">Send</button>
+  </p>
+</form>
+ </html>
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
