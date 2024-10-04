@@ -4,7 +4,6 @@
 
 # Under construction ... 🚧 👷‍♂️
 
----
 ### Jekyll homepage set-up
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
@@ -119,7 +118,7 @@ end
 	...
 	<label>Do not fill this field unless you are a bot: <input name="_gotcha">
 	-->
-
+```html
 <div>
 <html>	    
 <form name="contact" method="POST" netlify netlify-honeypot="bot-field" data-netlify="true" action="/pages/success">
@@ -139,6 +138,7 @@ end
 </form>
 </html>
 </div>
+```
 
 ```html
 <!DOCTYPE html>
