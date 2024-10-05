@@ -2,6 +2,12 @@
 layout: default
 ---
 
+# GitHub #
+
+[Andrey's GitHub page](https://github.com/andreymikhit).
+
+# Under construction ... 🚧 👷‍♂️
+
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
@@ -106,14 +112,10 @@ end
 ### Definition lists can be used with HTML syntax.
 
 <dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
+<dt>Andrey</dt>
+<dt>World</dt>
 <dt>Color</dt>
-<dd>Green</dd>
+<dd>Red</dd>
 </dl>
 
 ```
