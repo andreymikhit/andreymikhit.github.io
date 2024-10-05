@@ -11,4 +11,4 @@ theme: jekyll-theme-minimal
 #- jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # list all repositories for a user
-curl "https://api.github.com/users/andreymikhit/repos?per_page=100&page=1" | jq -r '.[] | .name'
+curl https://api.github.com/users/andreymikhit/repos
