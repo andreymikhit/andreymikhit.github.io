@@ -2,11 +2,11 @@
 
 [Andrey's GitHub page](https://github.com/andreymikhit).
 
-[Repository](https://github.com/andreymikhit?tab=repositories)
+[Repositories](https://github.com/andreymikhit?tab=repositories)
 
 # Under construction ... 🚧 👷‍♂️
 
-### Jekyll homepage 
+### homepage ... ###
 
 ```
 The final element.
