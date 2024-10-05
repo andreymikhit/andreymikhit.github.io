@@ -9,3 +9,10 @@ show_downloads: false
 theme: jekyll-theme-minimal
 #remote_theme: pages-themes/minimal@v0.2.0
 #- jekyll-remote-theme # add this line to the plugins list if you already have one
+
+# GitHub CLI api
+# https://cli.github.com/manual/gh_api
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /orgs/ORG/repos
