@@ -1,12 +1,10 @@
 # GitHub #
 
-[GitHub page](https://github.com/andreymikhit).
+### [GitHub page](https://github.com/andreymikhit)
 
-[Repositories](https://github.com/andreymikhit?tab=repositories)
+### [Repositories](https://github.com/andreymikhit?tab=repositories)
 
-# Under construction ... 🚧 👷‍♂️
-
-### homepage ... ###
+## Homepage under construction ... 🚧 👷‍♂️ ##
 
 ```
 The final element.
