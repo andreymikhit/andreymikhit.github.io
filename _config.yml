@@ -12,3 +12,5 @@ theme: jekyll-theme-minimal
 
 # list all repositories for a user
 gh repo list andreymikhit -L 400 |awk '{print $1}' |sed "s/andreymikhit\///"
+
+gh api repos/{andreymikhit}/{repo}/releases
