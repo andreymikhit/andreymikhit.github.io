@@ -11,16 +11,4 @@ theme: jekyll-theme-minimal
 #- jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # list all repositories for a user
-$ gh api graphql --paginate -f query='
-  query($endCursor: String) {
-    viewer {
-      repositories(first: 100, after: $endCursor) {
-        nodes { nameWithOwner }
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
-      }
-    }
-  }
-'
+gh repo list andreymikhit -L 400 |awk '{print $1}' |sed "s/andreymikhit\///"
