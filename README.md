@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # GitHub #
 
 ### [GitHub page](https://github.com/andreymikhit)
@@ -58,6 +54,6 @@ layout: default
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" title="blender" alt="blender" width="40" height="40"/>&nbsp;
 </p>
 
-```
-10-2024
-```
+---
+layout: default / 10-2024
+---
