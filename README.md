@@ -4,7 +4,10 @@
 
 ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact&theme=cobalt)
+<!--
+&theme=cobalt
+-->
 
 #### Connect with me:
 <div id="badges" align="center">
