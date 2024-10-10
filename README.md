@@ -4,6 +4,8 @@
 
 ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)</br>
+
 ## Homepage under construction ... 🚧 👷‍♂️ ##
 
 ```
