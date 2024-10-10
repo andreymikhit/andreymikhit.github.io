@@ -20,8 +20,7 @@ https://github.com/pages-themes/minimal
 <img src="https://img.shields.io/badge/Telegram-26A5E4?style=flat&logo=telegram&logoColor=white" alt="Telegramm Badge"/></a>&nbsp;&nbsp;
 </div>
 
----
-### Languages and Tools:
+
 <!-- https://github.com/devicons/devicon/tree/master/icons
 https://devicon.dev/
 -->
