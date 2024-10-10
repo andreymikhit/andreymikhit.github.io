@@ -3,11 +3,11 @@ https://github.com/pages-themes/minimal
 -->
 ### Hi there 👋 and welcome to my :
 
-* ### [GitHub page](https://github.com/andreymikhit)
+* #### [GitHub page](https://github.com/andreymikhit)
 
-* ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
+* #### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
-### Connect with me:
+#### Connect with me:
 <div id="badges" align="center">
 <a href="https://github.com/andreymikhit">
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge"/></a>&nbsp;&nbsp;
@@ -20,7 +20,7 @@ https://github.com/pages-themes/minimal
 https://devicon.dev/
 -->
 ---
-### Languages and Tools:
+#### Languages and Tools:
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)
 <!--
