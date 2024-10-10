@@ -64,5 +64,4 @@ https://devicon.dev/
 </p>
 
 ---
-10-2024. layout: default 
----
+10-2024. layout: default
