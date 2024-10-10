@@ -5,3 +5,5 @@ plugins:
   - jekyll-remote-theme
 minima:
   skin: dark # or auto if you want it to switch with your system settings.
+title: Andrey's 
+description: projects @GitHub
