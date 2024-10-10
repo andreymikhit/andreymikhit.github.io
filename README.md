@@ -3,9 +3,9 @@ https://github.com/pages-themes/minimal
 -->
 ### Hi there 👋 and welcome to my GitHub page
 
-### [*] [GitHub page](https://github.com/andreymikhit)
+* ### [GitHub page](https://github.com/andreymikhit)
 
-### * [List of all repositories](https://github.com/andreymikhit?tab=repositories)
+* ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact&theme=cobalt)
 <!--
