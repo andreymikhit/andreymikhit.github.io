@@ -1,5 +1,3 @@
-# GitHub
-
 ### Hi, I’m Andrey 👋
 
 ### [GitHub page](https://github.com/andreymikhit)
