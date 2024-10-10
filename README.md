@@ -64,4 +64,6 @@ https://devicon.dev/
 </p>
 
 ---
-10-2024. layout: default
+[data]10-2024. [version]layout: default. [author]@andreymikhit
+---
+
