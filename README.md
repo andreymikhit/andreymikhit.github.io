@@ -7,11 +7,6 @@ https://github.com/pages-themes/minimal
 
 * ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)
-<!--
-&theme=cobalt
--->
-
 #### Connect with me:
 <div id="badges" align="center">
 <a href="https://github.com/andreymikhit">
@@ -26,6 +21,11 @@ https://devicon.dev/
 -->
 ---
 ### Languages and Tools:
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)
+<!--
+&theme=cobalt
+-->
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Computer+science)](https://git.io/typing-svg)
 <p>
