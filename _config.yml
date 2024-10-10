@@ -4,8 +4,8 @@
 
 title: Andrey's 
 description: projects @GitHub
-show_downloads: true
-# show_downloads: false
+#show_downloads: true
+ show_downloads: false
 # google_analytics: [Your Google Analytics tracking ID]
 #theme: jekyll-theme-minimal
 theme: jekyll-theme-dark-minimal
@@ -21,5 +21,5 @@ theme: jekyll-theme-dark-minimal
 
 
 ## Welcome to another page
-_yay_
-[back](./)
+#_yay_
+#[back](./)
