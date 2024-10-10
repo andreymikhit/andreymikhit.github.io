@@ -74,5 +74,5 @@ https://devicon.dev/
 </p>
 
 ---
-[data]_10-2024. [version]_layout: default. [author](@andreymikhit)
 ---
+data: _10-2024_. version: _default_. author: _andreymikhit_
