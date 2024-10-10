@@ -1,7 +1,7 @@
 <!--
 https://github.com/pages-themes/minimal
 -->
-### Hi there 👋 and welcome to my GitHub page :
+### Hi there 👋 and welcome to my :
 
 * ### [GitHub page](https://github.com/andreymikhit)
 
