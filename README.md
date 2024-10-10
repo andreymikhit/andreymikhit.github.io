@@ -7,7 +7,7 @@ https://github.com/pages-themes/minimal
 
 * ### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
-#### Connect with me:
+### Connect with me:
 <div id="badges" align="center">
 <a href="https://github.com/andreymikhit">
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge"/></a>&nbsp;&nbsp;
