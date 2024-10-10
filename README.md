@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # GitHub #
 
 ### [GitHub page](https://github.com/andreymikhit)
