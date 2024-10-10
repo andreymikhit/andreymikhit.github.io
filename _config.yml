@@ -14,12 +14,3 @@ theme: jekyll-theme-dark-minimal
 
 # list all repositories for a user
 #curl https://github.com/andreymikhit?tab=repositories
-
-#---
-#layout: default
-#---
-
-
-## Welcome to another page
-#_yay_
-#[back](./)
