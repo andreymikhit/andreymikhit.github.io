@@ -58,5 +58,5 @@ https://devicon.dev/
 </p>
 
 ---
-layout: default / 10-2024
+10-2024. layout: default 
 ---
