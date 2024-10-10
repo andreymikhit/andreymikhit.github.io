@@ -10,5 +10,8 @@ theme: jekyll-theme-minimal
 #remote_theme: pages-themes/minimal@v0.2.0
 #- jekyll-remote-theme # add this line to the plugins list if you already have one
 
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)</br>
+
+
 # list all repositories for a user
 #curl https://github.com/andreymikhit?tab=repositories
