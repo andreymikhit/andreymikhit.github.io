@@ -1,4 +1,5 @@
-### Hi, I’m Andrey 👋
+### Hi there 👋 and welcome to my GitHub page, I’m Andrey
+
 
 ### [GitHub page](https://github.com/andreymikhit)
 
