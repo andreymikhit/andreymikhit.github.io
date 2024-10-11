@@ -11,7 +11,7 @@ https://github.com/pages-themes/minimal
 -->
 [![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)](https://github.com/andreymikhit)
 
-#### Connect with me:
+### Connect with me:
 <div id="badges" align="center">
 <a href="https://github.com/andreymikhit">
 <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub Badge"/></a>&nbsp;&nbsp;
@@ -25,8 +25,7 @@ https://devicon.dev/
 -->
 ---
 #### Languages and Tools:
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)(https://github.com/andreymikhit)]
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)](https://github.com/andreymikhit)
 <!--
 &theme=cobalt
 -->
