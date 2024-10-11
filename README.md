@@ -20,6 +20,9 @@ https://github.com/pages-themes/minimal
 https://devicon.dev/
 -->
 ---
+[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit)](https://github.com/andreymikhit)
+
+
 #### Languages and Tools:
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)
