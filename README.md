@@ -25,7 +25,7 @@ https://devicon.dev/
 -->
 ---
 #### Languages and Tools:
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact)](https://github.com/andreymikhit)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact&langs_count=20)
 <!--
 &theme=cobalt
 -->
