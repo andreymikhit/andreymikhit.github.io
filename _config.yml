@@ -2,6 +2,5 @@ remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 title: Andrey's 
-description: projects @GitHub
-
-[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)](https://github.com/andreymikhit?tab=repositories)
+description: projects @GitHub ![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)
+#[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)](https://github.com/andreymikhit?tab=repositories)
