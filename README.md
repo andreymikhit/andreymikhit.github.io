@@ -25,10 +25,6 @@ https://devicon.dev/
 -->
 ---
 #### Languages and Tools:
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact&langs_count=20)
-<!--
-&theme=cobalt
--->
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Computer+science)](https://git.io/typing-svg)
 <p>
@@ -66,6 +62,11 @@ https://devicon.dev/
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" title="Illustrator" alt="Illustrator" width="40" height="40"/>&nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/blender/blender-original.svg" title="blender" alt="blender" width="40" height="40"/>&nbsp;
 </p>
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=andreymikhit&layout=compact&langs_count=20)
+<!--
+&theme=cobalt
+-->
 
 ---
 date of changes: _10-2024_. version: _default_. author: _andreymikhit_
