@@ -9,7 +9,7 @@ https://github.com/pages-themes/minimal
 
 <!-- color=white  peng=false  pie	boolean  parameter=value & color=white
 -->
-[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white&parameter=pie)](https://github.com/andreymikhit)
+[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white&pie)](https://github.com/andreymikhit)
 
 #### Connect with me:
 <div id="badges" align="center">
