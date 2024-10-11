@@ -8,9 +8,9 @@ https://github.com/pages-themes/minimal
 * #### [List of all repositories](https://github.com/andreymikhit?tab=repositories)
 
 <!-- color=white  peng=false  pie	boolean  parameter=value & color=white & pie=false
--->
-[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)](https://github.com/andreymikhit?tab=repositories)
 
+[![My Stats](https://github-stats-evirunurm.vercel.app/api/stats.js?username=andreymikhit&color=white)](https://github.com/andreymikhit?tab=repositories)
+-->
 #### Connect with me:
 <div id="badges" align="center">
 <a href="https://github.com/andreymikhit">
