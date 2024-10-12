@@ -3,17 +3,18 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 # title: blank
 # title: Andrey's or blank # the website title (if blank, full name will be used instead)
-description: Projects @GitHub
+first_name: Andrey's
+middle_name: M.
+last_name: M.
+#email: you@example.com
+description: projects @GitHub
 # description: > # the ">" symbol means to ignore newlines until "footer_text:"
 #  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 #footer_text: >
 #  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 #  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 #  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-first_name: Andrey
-middle_name: M.
-last_name: M.
-#email: you@example.com
+
 
 
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website python yupiter IT # add your own keywords or leave empty
