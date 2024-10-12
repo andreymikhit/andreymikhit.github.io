@@ -15,8 +15,6 @@ description: projects @GitHub
 #  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 #  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
 
-
-
 keywords: portfolio-website, python, jupyter, IT, Azure, SQL, Debian # add your own keywords or leave empty
 lang: en, de, ru # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
