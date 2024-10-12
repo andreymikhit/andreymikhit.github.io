@@ -1,21 +1,6 @@
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
-
-# https://github.com/jekyll/minima/blob/master/assets/css/style.scss
-# theme: jekyll-theme-minimal
-# Minima specific settings, which are only available from Minima 3.0 onward.
-# minima:
-  # Minima skin selection.
-  # Available skins are:
-  # classic	           Default, light color scheme.
-  # dark	             Dark variant of the classic skin.
-  # auto	             Adaptive skin based on the default classic and dark skins.
-  # solarized-light	   Light variant of solarized color scheme.
-  # solarized-dark	   Dark variant of solarized color scheme.
-  # solarized	         Adaptive skin for solarized color scheme skins.
-# skin: dark
-
 # title: blank
 title: Andrey's
 # blank # the website title (if blank, full name will be used instead)
@@ -31,11 +16,9 @@ description: projects @GitHub
 #  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 #  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 #  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-
 keywords: portfolio-website, python, jupyter, IT, Azure, SQL, Debian # add your own keywords or leave empty
 lang: en, de, ru # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
-
 #url: https://alshedivat.github.io # the base hostname & protocol for your site
 #baseurl: /al-folio # the subpath of your site, e.g. /blog/. Leave blank for root
 #last_updated: false # set to true if you want to display last updated in the footer
