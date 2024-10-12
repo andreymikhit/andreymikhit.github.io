@@ -1,9 +1,20 @@
+# https://github.com/jekyll/minima/blob/master/assets/css/style.scss
 remote_theme: pages-themes/minimal@v0.2.0
-theme: jekyll-theme-minimal
-minima:
-  skin: dark
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
+theme: jekyll-theme-minimal
+# Minima specific settings, which are only available from Minima 3.0 onward.
+minima:
+  # Minima skin selection.
+  # Available skins are:
+  # classic	           Default, light color scheme.
+  # dark	             Dark variant of the classic skin.
+  # auto	             Adaptive skin based on the default classic and dark skins.
+  # solarized-light	   Light variant of solarized color scheme.
+  # solarized-dark	   Dark variant of solarized color scheme.
+  # solarized	         Adaptive skin for solarized color scheme skins.
+  skin: classic
+
 # title: blank
 title: Andrey's
 # blank # the website title (if blank, full name will be used instead)
