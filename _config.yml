@@ -2,10 +2,11 @@ remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 # title: blank
-# title: Andrey's or blank # the website title (if blank, full name will be used instead)
-first_name: Andrey's
-middle_name: M.
-last_name: M.
+title: Andrey's
+# blank # the website title (if blank, full name will be used instead)
+# first_name: Andrey's
+# middle_name: M.
+# last_name: M.
 #email: you@example.com
 description: projects @GitHub
 # description: > # the ">" symbol means to ignore newlines until "footer_text:"
