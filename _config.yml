@@ -1,6 +1,7 @@
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
+
 # https://github.com/jekyll/minima/blob/master/assets/css/style.scss
 # theme: jekyll-theme-minimal
 # Minima specific settings, which are only available from Minima 3.0 onward.
