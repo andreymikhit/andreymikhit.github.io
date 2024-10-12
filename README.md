@@ -70,4 +70,4 @@ https://devicon.dev/
 -->
 
 ---
-date of changes: _10-2024_. version: _default_. author: _andreymikhit_
+date of changes: _10-2024_. author: _andreymikhit_.
