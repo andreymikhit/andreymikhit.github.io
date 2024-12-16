@@ -4,8 +4,20 @@
 ## Linux (Debian / Ubuntu / Kali-Linux)
 
 ### Bash Commands
-* [Download new stable Debian-Linux](https://www.debian.org/distrib/)
+* [Download new stable Debian-Linux Live-Distribution](https://www.debian.org/distrib/)
   or Ubuntu, Kali-linux, etc...
+* USB Boot-Disk
+  * `sudo diskutil list`
+  * `sudo diskutil eraseDisk FAT32 USB /dev/disk3`
+  * `sudo diskutil umountDisk /dev/disk3`
+  * `cd Downloads`
+  * `ls -l`
+  * `sudo dd if=./debian-12...iso of=/dev/disk3 bs=5M status=progress`
+  * ... CD, DVD `bs=2048`
+
+* Live-CD:
+  * `user: user`
+  * `passwd: live`
 * `sudo nano /etc/apt/sources.list`
 * [Source list Debian](https://wiki.debian.org/SourcesList)
 * `sudo apt update`
@@ -144,7 +156,6 @@
 * Apache2 Serv `sudo apt install apache2`
 
 * Firewall ufw `sudo apt install ufw`
- * `sudo install ufw`
  * `sudo ufw enable`
  * `sudo enable status`
  * `sudo ufw app list`
