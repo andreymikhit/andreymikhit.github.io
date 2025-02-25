@@ -297,11 +297,10 @@
 
 # Format W95 FAT32
 * `lslbk` list disks
-* `sudo umount /dev/sda1` my sd-card on disk /dev/sda
 * `sudo apt install dosfstools`
-* `sudo umount /dev/sda1`
+* `sudo umount /dev/sda1` my sd-card on disk /dev/sda
 * `sudo fdisk /dev/sda`
-  * o (Enter) - d (Enter) - n (Enter) - p (Enter) - t (Enter) - c (Enter) - w (Enter)
+  * `o` (Enter) - `d` (delete partition & Enter) - `n` (Enter) - `p` (Enter) - `t` (Enter) - `c` (W95 FAT32 (LBA) & Enter) - `w` (write & Enter)
 * `sudo mkfs.vfat -F 32 -n name /dev/sda1`
 * `sudo fdisk -l` W95 FAT32 (LBA)
 
