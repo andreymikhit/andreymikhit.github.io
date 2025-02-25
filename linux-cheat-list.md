@@ -303,6 +303,7 @@
 * `sudo fdisk /dev/sda`
   * o (Enter) - d (Enter) - n (Enter) - p (Enter) - t (Enter) - c (Enter) - w (Enter)
 * `sudo mkfs.vfat -F 32 -n name /dev/sda1`
+* `sudo fdisk -l` W95 FAT32 (LBA)
 
 
 ## Windows 10 MRB repair / BCD
