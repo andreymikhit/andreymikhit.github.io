@@ -295,7 +295,7 @@
 * `history 1000`
 * `clear`
 
-# Format W95 FAT32
+### Format W95 FAT32
 * `lslbk` list disks
 * `sudo apt install dosfstools`
 * `sudo umount /dev/sda1` my sd-card on disk /dev/sda
@@ -306,7 +306,7 @@
 
 ---
 
-# Windows 10 MRB repair / BCD
+## Windows 10 MRB repair / BCD
 `/media/USER/DISK/Windows/System32/config/`
 
 BCD-Template [1]
