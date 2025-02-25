@@ -125,15 +125,26 @@
   * steps to install Facetimehd
     ```
     sudo apt install git
-    git clone https://github.com/patjak/bcwc_pcie.git
+    cd /etc/local/src/
+    sudo git clone https://github.com/patjak/bcwc_pcie.git
+    ls
     cd bcwc_pcie/firmware
+    ls
+    sudo git clone https://github.com/patjak/facetimehd-firmware.git
+    cd facetimehd-firmware
     sudo make install
+    cd ../..
+    sudo make install
+    sudo depmod    
+    sudo modprobe -r bdc-pci
+    sudo modprobe facetimehd
+    
+    (---
     sudo apt install kmod
     cd ~/bcwc_pcie
     sudo make install
     sudo depmod
-    sudo modprobe -r bdc-pci
-    sudo modprobe facetimehd
+    ---)
     ```
 
   * [Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
@@ -285,11 +296,13 @@
 * `clear`
 
 # Format W95 FAT32
-* `df -ht` usb media on /dev/sda1 in my case
-* `sudo fdisk -l`
+* `lslbk` list disks
+* `sudo umount /dev/sda1` my sd-card on disk /dev/sda
+* `sudo apt install dosfstools`
 * `sudo umount /dev/sda1`
-* `sudo mkdosfs -F 32 /dev/sda1`
-* (`sudo mkfs.vfat -F 32 -n name /dev/sda1`)
+* `sudo fdisk /dev/sda`
+  * o (Enter) - d (Enter) - n (Enter) - p (Enter) - t (Enter) - c (Enter) - w (Enter)
+* `sudo mkfs.vfat -F 32 -n name /dev/sda1`
 
 
 ## Windows 10 MRB repair / BCD
