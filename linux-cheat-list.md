@@ -305,7 +305,7 @@
   ... - t (Enter) - c (W95 FAT32 (LBA) & Enter) - w (write & Enter)
   # -c set to W95 FAT32 (LBA)
   sudo umount /dev/sdX1
-  sudo mkfs.vfat -F 32 -s 2 -S 4096 -v /dev/sdX1   # Format to fat32 with logical sector size is 4096  # -n nameSD
+  sudo mkfs.vfat -F 32 -s 2 -S 4096 -v /dev/sdX1   # Format to fat32 with a logical sector size is 4096  # -n nameSD
   sudo fdisk -l #W95 FAT32 (LBA)
   ```
 
