@@ -39,10 +39,20 @@
 ### Directory Operations
 * Show all incl. hidden `ls -a`
 * Show all as a list `ls -lh`
-* Recover and split the copy of a big data (>= 4G) to a fat32 Disk (max. 4G file)
+* Recover and split the copy of a big data (~ 4G) to a fat32 Disk (max. 4G file)
 `split -b 4000M /source-dest/big_file_name ~/archive/big-file-name-split_`
 * Merge a splitted files named like split_aa, split_ab, ..., split_az
 `cat ~/archive/big-file-name-split_* > ~/target-dest/big-file-name`
+
+### Create a tar archive and split into blocks 4000M (~ 4G)
+* tar -czvf archive.tar.gz /home/disk
+or
+* tar -zcvf - file_large.zip | split -b 4000M - files.tar.gz
+then
+* cat files.tar.gz* | tar -zxv
+to extract use terminal or mc (midnight commander)
+* tar -xvf files.tar.gz 
+* unzip files.zip
 
 ### Users / groups
 * Show all users / groups `cat /etc/passwd`
