@@ -231,6 +231,95 @@ to extract use terminal or mc (midnight commander)
 
 ### Server Apache2 Mysql Phpmyadmin Ufw Security
 * Apache2 Serv `sudo apt install apache2`
+[Apache HTTP Server vulnerabilities](https://httpd.apache.org/security)
+* Apache2 Serv Security
+  ```cmd
+  $ nano /etc/apache2/apache2.conf (Debian/Ubuntu)
+  ServerSignature Off
+  ServerTokens Prod
+  $ service apache2 restart (Debian/Ubuntu)
+  # Indexes off - apache2.conf
+  <Directory /var/www/html>
+  Options -Indexes
+  </Directory>
+  $ httpd -v
+  # update
+  apt-get install apache2
+  # Deactivate with comments # :  mod_imap, mod_include, mod_info, mod_userdir, mod_autoindex, ...
+  # grep LoadModule /etc/httpd/conf/httpd.conf
+  # have to place corresponding `LoadModule' lines at this location so the
+  # LoadModule foo_module modules/mod_foo.so
+  LoadModule auth_basic_module modules/mod_auth_basic.so
+  ...
+  # separate group / user for Apache2
+  # /etc/httpd/conf/httpd.conf 
+  # groupadd http_web
+  # useradd -d /var/www/ -g http-web -s /bin/nologin http_web
+  User http_web
+  Group http_web
+  # httpd.conf.
+  <Directory />
+  Options None
+  Order deny,allow
+  Deny from all
+  </Directory>
+  $ sudo apt-get install libapache2-modsecurity
+  $ sudo a2enmod mod-security
+  $ sudo /etc/init.d/apache2 force-reload
+  # Deactivate links .htaccess
+  Options -FollowSymLinks
+  # Enable symbolic links
+  Options +FollowSymLinks
+  # mod_include
+  Options -Includes
+  Options -ExecCGI
+  /var/www/html/web».
+  <Directory "/var/www/html/web">
+  Options -Includes -ExecCGI
+  </Directory>
+  #  LimitRequestBody 0 (unlimited) / 500К / 2G
+  <Directory "/var/www/myweb/user_uploads">
+  LimitRequestBody 512000
+  </Directory>
+  # DDOS
+  TimeOut
+  MaxClients
+  KeepAliveTimeout
+  LimitRequestFields 100 (10 ?)
+  LimitRequestFieldSize
+  # log mod_log_config
+  <VirtualHost *:80>
+  DocumentRoot /var/www/html/example.com/
+  ServerName www.example.com
+  DirectoryIndex index.htm index.html index.php
+  ServerAlias example.com
+  ErrorDocument 404 /story.php
+  ErrorLog /var/log/httpd/example.com_error_log
+  CustomLog /var/log/httpd/example.com_access_log combined
+  </VirtualHost>
+  # SSL mod_ssl
+  # openssl genrsa -des3 -out example.com.key 1024
+  # openssl req -new -key example.com.key -out exmaple.csr
+  # openssl x509 -req -days 365 -in example.com.com.csr -signkey example.com.com.key -out example.com.com.crt
+  # add cert to conf Appache
+  <VirtualHost 172.16.25.125:443>
+  SSLEngine on
+  SSLCertificateFile /etc/pki/tls/certs/example.com.crt
+  SSLCertificateKeyFile /etc/pki/tls/certs/example.com.key
+  SSLCertificateChainFile /etc/pki/tls/certs/sf_bundle.crt
+  ServerAdmin ravi.saive@example.com
+  ServerName example.com
+  DocumentRoot /var/www/html/example/
+  ErrorLog /var/log/httpd/example.com-error_log
+  CustomLog /var/log/httpd/example.com-access_log common
+  </VirtualHost>
+  ```
+
+* Security scan
+ * sudo apt install nmap
+ * nmap -O ip-address/homepage
+ * nmap -sV ip-address/homepage
+ * nmap -A -T4 ip-address/homepage
 
 * Firewall ufw `sudo apt install ufw`
  * `sudo ufw enable`
