@@ -394,7 +394,7 @@ to extract use terminal or mc (midnight commander)
 * `history 1000`
 * `clear`
 * samba / NAS
-* sudo apt install samba cifs-utils
+* `sudo apt install samba cifs-utils`
 
 ### Format W95 FAT32 (LBA)
   ```
