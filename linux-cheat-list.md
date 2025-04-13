@@ -45,14 +45,16 @@
 `cat ~/archive/big-file-name-split_* > ~/target-dest/big-file-name`
 
 ### Create a tar archive and split into blocks 4000M (~ 4G)
-* tar -czvf archive.tar.gz /home/disk
-or
-* tar -zcvf - file_large.zip | split -b 4000M - files.tar.gz
-then
-* cat files.tar.gz* | tar -zxv
-to extract use terminal or mc (midnight commander)
-* tar -xvf files.tar.gz 
-* unzip files.zip
+```cmd
+tar -czvf archive.tar.gz /home/disk`
+# or
+tar -zcvf - file_large.zip | split -b 4000M - files.tar.gz
+# then
+cat files.tar.gz* | tar -zxv
+# to extract use terminal or mc (midnight commander)
+tar -xvf files.tar.gz 
+unzip files.zip
+```
 
 ### Users / groups
 * Show all users / groups `cat /etc/passwd`
@@ -231,8 +233,8 @@ to extract use terminal or mc (midnight commander)
 
 ### Server Apache2 Mysql Phpmyadmin Ufw Security
 * Apache2 Serv `sudo apt install apache2`
-[Apache HTTP Server vulnerabilities](https://httpd.apache.org/security)
 * Apache2 Serv Security
+* [Apache HTTP Server vulnerabilities](https://httpd.apache.org/security)
   ```cmd
   $ nano /etc/apache2/apache2.conf (Debian/Ubuntu)
   ServerSignature Off
@@ -316,11 +318,12 @@ to extract use terminal or mc (midnight commander)
   ```
 
 * Security scan
+ ```cmd
  * sudo apt install nmap
  * nmap -O ip-address/homepage
  * nmap -sV ip-address/homepage
  * nmap -A -T4 ip-address/homepage
-
+ ```
 * Firewall ufw `sudo apt install ufw`
  * `sudo ufw enable`
  * `sudo enable status`
