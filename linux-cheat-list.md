@@ -393,6 +393,8 @@ to extract use terminal or mc (midnight commander)
 * `ping ip-address`
 * `history 1000`
 * `clear`
+* samba / NAS
+* sudo apt install samba cifs-utils
 
 ### Format W95 FAT32 (LBA)
   ```
