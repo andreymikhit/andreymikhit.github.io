@@ -319,11 +319,12 @@ unzip files.zip
 
 * Security scan
  ```cmd
- * sudo apt install nmap
- * nmap -O ip-address/homepage
- * nmap -sV ip-address/homepage
- * nmap -A -T4 ip-address/homepage
+ sudo apt install nmap
+ nmap -O ip-address/homepage
+ nmap -sV ip-address/homepage
+ nmap -A -T4 ip-address/homepage
  ```
+
 * Firewall ufw `sudo apt install ufw`
  * `sudo ufw enable`
  * `sudo enable status`
