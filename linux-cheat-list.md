@@ -375,6 +375,11 @@ unzip files.zip
 * `sudo apt install sane-utils`
 * `sudo apt install alien`
 * `sudo dpkg -i PACKAGE.deb`
+* `sudo dpkg -i PACKAGE.deb`
+* list
+* `dpkg -l | grep ProgName`
+* remove
+* `sudo dpkg -P ProgName1`
 * dpkg Package if failure / errors 
 * `sudo dpkg -i --force-all PACKAGE.deb`
 * `sudo dpkg --configure -a`
