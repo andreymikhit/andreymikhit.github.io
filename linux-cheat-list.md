@@ -384,13 +384,30 @@ unzip files.zip
 * `gunzip GZTARFILE.tar.gz`
 * `tar -xvjf TARFILE.tar.gz`
 * `sudo ./install.sh`
-* locale
+* Reconfig. Desktop / Server / GUI
 * `sudo tasksel`
-* `sudo dpkg-reconfigure keyboard-configuration`
-* `sudo service keyboard-setup restart`
-* `sudo nano /etc/default/keyboard`
-* `sudo setxkbmap de`
-* `sudo setxkbmap ru`
+* time autom.
+```CMD
+systemd --version
+# systemd 252
+cat /etc/timezone
+cat /etc/localtime
+sudo apt-get autoremove ntp chrony openntpd
+sudo apt-get install systemd-timesyncd
+systemctl status systemd-timesyncd.service
+timedatectl status
+sudo lsof -i
+# no ntp service (OK)
+```
+* locales UTF-8 ... de_DE ru_RU en_EN
+```CMD
+sudo dpkg-reconfigure locales
+sudo dpkg-reconfigure keyboard-configuration`
+sudo service keyboard-setup restart`
+sudo nano /etc/default/keyboard`
+sudo setxkbmap de`
+sudo setxkbmap ru
+```
 * `sudo apt update`
 * `sudo nano /etc/apt/sources.list`
 * `sudo apt update`
