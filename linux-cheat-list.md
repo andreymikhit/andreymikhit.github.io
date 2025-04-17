@@ -184,11 +184,14 @@ unzip files.zip
  ```cmd
  su -s
  ip addr
+ ip a
+ ping ip-address
  netstat -tl (прослушать TCP-порты)
  dig geekbrains.ru (службы DNS)
  nmap geekbrains.ru
  nmcli c show
- iptables -t nat -L
+ more /etc/network/interfaces
+ # Ctrl + c
  ```
 
 `cat /etc/network/interfaces` (if not exist, than)
@@ -316,14 +319,31 @@ unzip files.zip
   CustomLog /var/log/httpd/example.com-access_log common
   </VirtualHost>
   ```
+* Server as a router
+```cmd
+ sudo apt install iptables
+ modprobe iptable_nat
+ echo 1 > /proc/sys/net/ipv4/ip_forward
+ iptables -t nat -A POSTROUTING -o enp3s0 -j MASQUERADE
+ iptables -A FORWARD -i enp1s0 -j ACCEPT
+ nano /etc/modules
+ iptable_nat
+ nano /etc/sysctl.conf
+ net.ipv4.ip_forward=1
+ apt install iptables-persistent
+ iptables-save > /etc/iptables/rules.v4
+ ping 8.8.8.8
+ ping 1.1.1.1
+ iptables -t nat -L
+```
 
 * Security scan
- ```cmd
- sudo apt install nmap
- nmap -O ip-address/homepage
- nmap -sV ip-address/homepage
- nmap -A -T4 ip-address/homepage
- ```
+   ```cmd
+   sudo apt install nmap
+   nmap -O ip-address/homepage
+   nmap -sV ip-address/homepage
+   nmap -A -T4 ip-address/homepage
+   ```
 
 * Firewall ufw `sudo apt install ufw`
  * `sudo ufw enable`
@@ -359,7 +379,7 @@ unzip files.zip
   sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-json
   sudo apt install phpmyadmin -y
   ```
-
+  
 ### Usefull
 * `apt install firmware-linux`
 * `apt install gparted`
@@ -392,33 +412,39 @@ unzip files.zip
 * Reconfig. Desktop / Server / GUI
 * `sudo tasksel`
 * time autom.
-```CMD
-systemd --version
-# systemd 252
-cat /etc/timezone
-cat /etc/localtime
-sudo apt-get autoremove ntp chrony openntpd
-sudo apt-get install systemd-timesyncd
-systemctl status systemd-timesyncd.service
-timedatectl status
-sudo lsof -i
-# no ntp service (OK)
-```
+  ```CMD
+  systemd --version
+  # systemd 252
+  cat /etc/timezone
+  cat /etc/localtime
+  sudo apt-get autoremove ntp chrony openntpd
+  sudo apt-get install systemd-timesyncd
+  systemctl status systemd-timesyncd.service
+  timedatectl status
+  sudo lsof -i
+  # no ntp service (OK)
+  ```
 * locales UTF-8 ... de_DE ru_RU en_EN
-```CMD
-sudo dpkg-reconfigure locales
-sudo dpkg-reconfigure keyboard-configuration`
-sudo service keyboard-setup restart`
-sudo nano /etc/default/keyboard`
-sudo setxkbmap de`
-sudo setxkbmap ru
-```
+  ```CMD
+  sudo dpkg-reconfigure locales
+  sudo dpkg-reconfigure keyboard-configuration`
+  sudo service keyboard-setup restart`
+  sudo nano /etc/default/keyboard`
+  sudo setxkbmap de`
+  sudo setxkbmap ru
+  ```
 * `sudo apt update`
 * `sudo nano /etc/apt/sources.list`
 * `sudo apt update`
-* `ping ip-address`
-* `history 1000`
-* `clear`
+* history bash show / copy / delete
+  ```CMD
+  history 1000
+  cat ~/.bash_history
+  clear
+  history -c
+  cp ~/.bash_history ~/bash_history-bak_2025-4
+  cat /dev/null > ~/.bash_history
+  ```
 * samba / NAS
 * `sudo apt install samba cifs-utils`
 
