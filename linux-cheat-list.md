@@ -194,14 +194,16 @@ unzip files.zip
  # Ctrl + c
  ```
 
-`cat /etc/network/interfaces` (if not exist, than)
+* if not exist, than:
  ```cmd
+ cat /etc/network/interfaces
  apt install ifupdown
  nano /etc/network/interfaces
  service networking restart
  ip addr
  cat /etc/resolv.conf
  ```
+
 * Ручная настройка сети:
  ```cmd
  ip link set enp0s3 up
@@ -209,6 +211,7 @@ unzip files.zip
  ip route add default via 192.IP...
  ip a s
  ```
+
  * Ручная настройка DNS:
  ```cmd
  dig geekbrains.ru
