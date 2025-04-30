@@ -450,6 +450,30 @@ unzip files.zip
   ```
 * samba / NAS
 * `sudo apt install samba cifs-utils`
+* VirtualBox
+  ```CMD
+  sudo apt install virtualbox
+  sudo apt install virtualbox-ext-pack
+  #https://www.virtualbox.org/wiki/Downloads
+  #Resize the VDI image to MB-SIZE
+  cd /home/.../VirtualBox/Your_disk.vdi
+  VBoxManage modifyhd Your_disk.vdi –resize size_in_Mb
+  #Clone the VMDK image to VDI format
+  VBoxManage clonehd source.vmdk cloned.vdi --format vdi
+  #Clone back to VMDK format
+  VBoxManage clonehd cloned.vdi resized.vmdk --format vmdk
+  #Virtualbox Linux
+  vboxmanage list -l hdds
+  GParted
+  resize
+  # Windows
+  cd C:\Program files\Oracle\VirtualBox
+  VBoxManage modifyhd «C:\Users\NameUser\VirtualBox VMs\Staffcop\Staffcop.vdi» --resize X
+  ...
+  #Virtualbox Win:
+  Win+R + diskmgmt.msc
+  Расширить том
+  ```
 
 ### Format W95 FAT32 (LBA)
   ```
