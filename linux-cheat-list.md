@@ -113,32 +113,32 @@ unzip files.zip
  * `bash /home/../../refind-bin-0.14.0.2/refind-install`
 
 * refind / MacBook <-> Windows <-> Linux
-```
-# download from https://www.rodsbooks.com/refind
-# Run from the terminal to find the EFI partition:
-diskutil list
-# copy unziped refind-bin-0.14.2 to (exFAT) usb-stick refind-bin-0.14.2
-# reboot MacBook and hold Cmd+R
-# when the OS has booted, selected Utilities -> Terminal
-cd /Volumes/Your-usb-stick/refind-bin-0.14.2
-# Run the rEFInd install script:
-./refind-install
-... Installation has completed successfully. 
-reboot
 
-# To Fix rEFInd by problems
-# https://gist.github.com/rowanphipps/e4c0e6037b71e9ea96dd8fe403461ee3
-# Whenever you install a new OS or somtimes when you install updates, one of the operating systems may decide that you EFI boot selection is all broken and that it needs to be fixed. When this happens then when you reboot it will boot straight into that OS and skip rEFInd. Instructions for how to fix this are below and there is a script in the attached file.
-# Restart and hold down the option key or Cmd+R
-# This tells the hardware to skip straight to the mac bootloader, allowing you to bypass your broken EFI settings.
-# Select your macOS partition to boot from.
-# Open terminal
-# Mount the ESP volume:
-mkdir /Volumes/ESP
-mount -t msdos /dev/disk0s1 /Volumes/ESP
-#Bless the reFind program
-bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.efi --shortform
-```
+  ```cmd
+  # download from https://www.rodsbooks.com/refind
+  # Run from the terminal to find the EFI partition:
+  diskutil list
+  # copy unziped refind-bin-0.14.2 to (exFAT) usb-stick refind-bin-0.14.2
+  # reboot MacBook and hold Cmd+R
+  # when the OS has booted, selected Utilities -> Terminal
+  cd /Volumes/Your-usb-stick/refind-bin-0.14.2
+  # Run the rEFInd install script:
+  ./refind-install
+  ... Installation has completed successfully. 
+  reboot
+  # To Fix rEFInd by problems
+  # https://gist.github.com/rowanphipps/e4c0e6037b71e9ea96dd8fe403461ee3
+  # Whenever you install a new OS or somtimes when you install updates, one of the operating systems may decide that you EFI boot selection is all broken and that it needs to be fixed. When this happens then when you reboot it will boot straight into that OS and skip rEFInd. Instructions for how to fix this are below and there is a script in the attached file.
+  # Restart and hold down the option key or Cmd+R
+  # This tells the hardware to skip straight to the mac bootloader, allowing you to bypass your broken EFI settings.
+  # Select your macOS partition to boot from.
+  # Open terminal
+  # Mount the ESP volume:
+  mkdir /Volumes/ESP
+  mount -t msdos /dev/disk0s1 /Volumes/ESP
+  #Bless the reFind program
+  bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.efi --shortform
+  ```
 
 ### Macbook <-> Linux
 * WiFi / Broadcom Corporation BCM4360 802.11ac ...
