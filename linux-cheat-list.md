@@ -373,12 +373,26 @@ bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.e
    nmap -O ip-address/homepage
    nmap -sV ip-address/homepage
    nmap -A -T4 ip-address/homepage
+   dpkg -l
+   cd ~
+   find . -maxdepth 1 -type f -name ".*"
+   sudo netstat -tulpn   # open ports
    ```
 
-* Firewall ufw `sudo apt install ufw`
- * `sudo ufw enable`
- * `sudo enable status`
- * `sudo ufw app list`
+* Firewall ufw:
+  ```cmd
+  sudo apt install ufw
+  sudo ufw enable
+  sudo ufw enable status
+  sudo ufw app list
+  sudo ufw default deny incoming   # sudo ufw default allow incoming
+  sudo ufw default allow outgoing
+  sudo ufw status verbose 
+  sudo ufw disable   #disable Firewall
+  sudo ufw status numbered
+  sudo ufw allow OpenSSH
+  sudo ufw reset   # reset Firewall
+  ```
 
 * Linux DrWeb Antivir
   [Download DrWeb](https://www.drweb.by/saas/support/install/)
