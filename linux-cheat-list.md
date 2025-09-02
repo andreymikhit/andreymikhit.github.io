@@ -169,45 +169,37 @@ sudo systemctl start bluetooth
 
 * Facetimehd
 ```cmd
-
 lspci -v
+```
 
-# Broadcom Inc. 720p FaceTime HD Camera
-# steps to install Facetimehd
-
+```cmd
+#Broadcom Inc. 720p FaceTime HD Camera
+#steps to install Facetimehd:
 sudo apt install git
 cd /etc/local/src/
-
 sudo git clone https://github.com/patjak/bcwc_pcie.git
 ls
 cd bcwc_pcie/firmware
 ls
-
 sudo git clone https://github.com/patjak/facetimehd-firmware.git
 cd facetimehd-firmware
 sudo make install
 cd ../..
-
 sudo make install
-sudo depmod    
+sudo depmod
 sudo modprobe -r bdc-pci
 sudo modprobe facetimehd
-
-# ?
+# ?---
 sudo apt install kmod
 cd ~/bcwc_pcie
 sudo make install
 sudo depmod
-#
-
-# [Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
-# Install the missing Debian dependencies to extract the firmware
-
+# ---
+#[Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
+#Install the missing Debian dependencies to extract the firmware
 sudo apt install xz-utils curl cpio make
-
 # Extract and install the firmware file as described in Firmware extraction.
-# Install the dependencies: 
-
+# Install the dependencies:
 sudo apt install linux-headers-generic git kmod libssl-dev checkinstall
 ```
 
@@ -217,17 +209,11 @@ sudo apt install linux-headers-generic git kmod libssl-dev checkinstall
 # Change into that dir: $ cd facetimehd
 # Build the kernel module: $ make
 # Generate dkpg and install the kernel module, this is easy to uninstall later:
-```
-
-```cmd
 sudo checkinstall
-
 # Alternatively if you are really lazy just:
 sudo make install
-
 # Run depmod for the kernel to be able to find and load it:
 sudo depmod
-
 # Load kernel module: #sudo modprobe facetimehd
 # try it out: $ mplayer tv://
 ```
