@@ -145,23 +145,23 @@ sudo dmidecode -s system-product-name
 ```
 * WiFi / Broadcom Corporation BCM4360 802.11ac ...
 ```
-lspci -nn | grep Network`
-sudo apt install wireless-tools`
-sudo apt install wpasupplicant`
-sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms`
-sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma`
+lspci -nn | grep Network
+sudo apt install wireless-tools
+sudo apt install wpasupplicant
+sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
+sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
 sudo apt install network-manager-vpnc vpnc
 ```
 
 * Bluetooth
 ```
-dmesg | grep -i bluetooth`
-lsusb | grep Bluetooth`
+dmesg | grep -i bluetooth
+lsusb | grep Bluetooth
 blueman
-modprobe btusb`
-sudo systemctl status bluetooth`
-sudo systemctl enable bluetooth`
-sudo systemctl start bluetooth`
+modprobe btusb
+sudo systemctl status bluetooth
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
 ```
 
 * Facetimehd
