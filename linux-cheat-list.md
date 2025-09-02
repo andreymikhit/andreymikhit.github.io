@@ -140,11 +140,14 @@ bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.e
 ```
 
 ### Macbook <-> Linux
-```
+
+* Show PC modell
+```cmd
 sudo dmidecode -s system-product-name
 ```
+
 * WiFi / Broadcom Corporation BCM4360 802.11ac ...
-```
+```cmd
 lspci -nn | grep Network
 sudo apt install wireless-tools
 sudo apt install wpasupplicant
@@ -154,7 +157,7 @@ sudo apt install network-manager-vpnc vpnc
 ```
 
 * Bluetooth
-```
+```cmd
 dmesg | grep -i bluetooth
 lsusb | grep Bluetooth
 blueman
@@ -165,32 +168,38 @@ sudo systemctl start bluetooth
 ```
 
 * Facetimehd
-```
+```cmd
+
 lspci -v
+
 # Broadcom Inc. 720p FaceTime HD Camera
 # steps to install Facetimehd
+
 sudo apt install git
 cd /etc/local/src/
+
 sudo git clone https://github.com/patjak/bcwc_pcie.git
 ls
 cd bcwc_pcie/firmware
 ls
+
 sudo git clone https://github.com/patjak/facetimehd-firmware.git
 cd facetimehd-firmware
 sudo make install
 cd ../..
+
 sudo make install
 sudo depmod    
 sudo modprobe -r bdc-pci
 sudo modprobe facetimehd
 
-# ---  
+# ?
 sudo apt install kmod
 cd ~/bcwc_pcie
 sudo make install
 sudo depmod
-# ---
-    ```
+#
+
 # [Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
 # Install the missing Debian dependencies to extract the firmware
 
@@ -200,25 +209,27 @@ sudo apt install xz-utils curl cpio make
 # Install the dependencies: 
 
 sudo apt install linux-headers-generic git kmod libssl-dev checkinstall
+```
 
-# Clone the driver's code: 
+```cmd
+# Clone the driver's code:
 # git clone https://github.com/patjak/facetimehd.git
-# Change into that dir: `$ cd facetimehd
-# Build the kernel module: `$ make
+# Change into that dir: $ cd facetimehd
+# Build the kernel module: $ make
 # Generate dkpg and install the kernel module, this is easy to uninstall later:
+```
 
+```cmd
 sudo checkinstall
 
 # Alternatively if you are really lazy just:
-
 sudo make install
 
 # Run depmod for the kernel to be able to find and load it:
-
 sudo depmod
 
-# Load kernel module: `#sudo modprobe facetimehd
-# try it out: `$ mplayer tv://
+# Load kernel module: #sudo modprobe facetimehd
+# try it out: $ mplayer tv://
 ```
 
 ### Network
@@ -297,7 +308,7 @@ sudo depmod
   apt-get install apache2
   # Deactivate with comments # :  mod_imap, mod_include, mod_info, mod_userdir, mod_autoindex, ...
   # grep LoadModule /etc/httpd/conf/httpd.conf
-  # have to place corresponding `LoadModule' lines at this location so the
+  # have to place corresponding 'LoadModule' lines at this location so the
   # LoadModule foo_module modules/mod_foo.so
   LoadModule auth_basic_module modules/mod_auth_basic.so
   ...
