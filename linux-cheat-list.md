@@ -140,71 +140,88 @@ bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.e
 ```
 
 ### Macbook <-> Linux
+```
+sudo dmidecode -s system-product-name
+```
 * WiFi / Broadcom Corporation BCM4360 802.11ac ...
-  * `lspci -nn | grep Network`
-  * `sudo apt install wireless-tools`
-  * `sudo apt install wpasupplicant`
-  * `sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms`
-  * `sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma`
-  * `aptitude install network-manager-vpnc vpnc`
+```
+lspci -nn | grep Network`
+sudo apt install wireless-tools`
+sudo apt install wpasupplicant`
+sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms`
+sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma`
+sudo apt install network-manager-vpnc vpnc
+```
 
 * Bluetooth
-  * `dmesg | grep -i bluetooth`
-  * `lsusb | grep Bluetooth`
-  * blueman
-  * `modprobe btusb`
-  * `sudo systemctl status bluetooth`
-  * `sudo systemctl enable bluetooth`
-  * `sudo systemctl start bluetooth`
+```
+dmesg | grep -i bluetooth`
+lsusb | grep Bluetooth`
+blueman
+modprobe btusb`
+sudo systemctl status bluetooth`
+sudo systemctl enable bluetooth`
+sudo systemctl start bluetooth`
+```
 
 * Facetimehd
-  * `lspci -v`
-    * Broadcom Inc. 720p FaceTime HD Camera
-   
+```
+lspci -v
+```
+  * Broadcom Inc. 720p FaceTime HD Camera
   * steps to install Facetimehd
-    ```
-    sudo apt install git
-    cd /etc/local/src/
-    sudo git clone https://github.com/patjak/bcwc_pcie.git
-    ls
-    cd bcwc_pcie/firmware
-    ls
-    sudo git clone https://github.com/patjak/facetimehd-firmware.git
-    cd facetimehd-firmware
-    sudo make install
-    cd ../..
-    sudo make install
-    sudo depmod    
-    sudo modprobe -r bdc-pci
-    sudo modprobe facetimehd
-    
-    (---
-    sudo apt install kmod
-    cd ~/bcwc_pcie
-    sudo make install
-    sudo depmod
-    ---)
-    ```
+```
+sudo apt install git
+cd /etc/local/src/
+sudo git clone https://github.com/patjak/bcwc_pcie.git
+ls
+cd bcwc_pcie/firmware
+ls
+sudo git clone https://github.com/patjak/facetimehd-firmware.git
+cd facetimehd-firmware
+sudo make install
+cd ../..
+sudo make install
+sudo depmod    
+sudo modprobe -r bdc-pci
+sudo modprobe facetimehd
 
-  * [Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
-  * Install the missing Debian dependencies to extract the firmware
-    * `sudo apt install xz-utils curl cpio make`
-  * Extract and install the firmware file as described in Firmware extraction.
-  * Install the dependencies: 
-    * `sudo apt install linux-headers-generic git kmod libssl-dev checkinstall`
-  * Clone the driver's code: 
-    * `git clone https://github.com/patjak/facetimehd.git`
-  * Change into that dir: `$ cd facetimehd`
-  * Build the kernel module: `$ make`
-  * Generate dkpg and install the kernel module, this is easy to uninstall later:
-    * `sudo checkinstall`
-  * Alternatively if you are really lazy just:
-    * `sudo make install`
-  * Run depmod for the kernel to be able to find and load it:
-    * `sudo depmod`
-  * Load kernel module: `#sudo modprobe facetimehd`
-  * try it out: `$ mplayer tv://`
- 
+# ---  
+sudo apt install kmod
+cd ~/bcwc_pcie
+sudo make install
+sudo depmod
+# ---
+    ```
+# [Facetimehd wiki / github](https://github.com/patjak/facetimehd/wiki)
+# Install the missing Debian dependencies to extract the firmware
+
+sudo apt install xz-utils curl cpio make`
+
+# Extract and install the firmware file as described in Firmware extraction.
+# Install the dependencies: 
+
+sudo apt install linux-headers-generic git kmod libssl-dev checkinstall`
+
+# Clone the driver's code: 
+# git clone https://github.com/patjak/facetimehd.git`
+# Change into that dir: `$ cd facetimehd`
+# Build the kernel module: `$ make`
+# Generate dkpg and install the kernel module, this is easy to uninstall later:
+
+sudo checkinstall`
+
+# Alternatively if you are really lazy just:
+
+sudo make install`
+
+# Run depmod for the kernel to be able to find and load it:
+
+sudo depmod`
+
+# Load kernel module: `#sudo modprobe facetimehd`
+# try it out: `$ mplayer tv://`
+```
 
 ### Network
 * Tools
