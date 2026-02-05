@@ -91,6 +91,26 @@ unzip files.zip
 * convert tiff to pdf
  * `tiff2pdf -o output.pdf input.tif`
 
+### LaTex / TeX / TeXstudio
+* Install TeXLive
+```cmd
+sudo apt update && sudo apt upgrade
+sudo apt install texlive
+$ 339 M
+sudo apt install texlive-latex-extra -y
+$ 60+ M
+latex --version
+sudo apt install texlive-lang-cyrillic
+sudo apt install texlive-lang-german
+```
+* Install TeXstudio
+```cmd
+sudo apt install texstudio
+```
+* Start TeXstudio
+* TeXstudio -> Optionen -> TeXstudio konfigurieren -> / Erzeugen -> Standardcompiler: PdfLaTeX or XeLaTeX / Editor -> Zeilennummern anzeigen: Alle Zeilennummern
+* Write .tex and compile: F5
+
 ### .iso boot disk
 * `lsblk`
 * `sudo umount /dev/sd<?><?>`
