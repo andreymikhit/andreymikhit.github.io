@@ -1,5 +1,5 @@
-# linux-cheat-list
-Чит-лист шпаргалка Линукс & Винда
+# Cheat-list
+Чит-лист шпаргалка Линукс & Винда & Mac
 
 ## Linux (Debian / Ubuntu / Kali-Linux)
 
@@ -169,6 +169,8 @@ sudo dmidecode -s system-product-name
 * WiFi / Broadcom Corporation BCM4360 802.11ac ...
 ```cmd
 lspci -nn | grep Network
+# Broadcom Inc. and subsidiaries BCM4322 802.11a/b/g/n Wireless LAN Controller
+# for Mac 5.1 / Mac Air 2017 : b44 b43 b43legacy works ...
 sudo apt install wireless-tools
 sudo apt install wpasupplicant
 sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
