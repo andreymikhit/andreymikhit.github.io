@@ -1,12 +1,12 @@
 ### 👋 Hi, I’m Andrey
 
 I’m looking to collaborate on:
-- [x] IT (Linux, Machine Learning AI, MySQL, Python, Cloudcomputing, Microsoft-Azure, Cisco)
+- [x] IT (Linux, LTS Ubuntu, Kali, Machine Learning AI, MySQL, Python, Cloudcomputing, Microsoft-Azure, Windows WMI, Cisco, VyOS, VMware, Virtualbox, ...) 
 - [x] Graphic-design (CorelDraw, Illustrator, Photoshop, Gimp)
 - [x] Exhibition management (consulting, project management, design, marketing)
 - [x] ... and other activities
 
-_Hobbies:_ 🏊‍♂️ 🚴 🏐 🏓 🎿 🏒 🚗 📚 📷 :pyramidbilliards
+_Hobbies:_ 🏊‍♂️ 🚴 🏓 🎿 🏒 🚗 📚 📷 :pyramidbilliards
 
 🌍 I speak 🇩🇪 🇷🇺 🇺🇸
 
