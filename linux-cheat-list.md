@@ -1,4 +1,4 @@
-# Cheat-list
+# Cheat-list Linux / Win
 Чит-лист шпаргалка Линукс & Винда & Mac
 
 ## Linux (Debian / Ubuntu / Kali-Linux)
@@ -457,7 +457,7 @@ mplayer tv://
 * `sudo ./install.sh`
 * Reconfig. Desktop / Server / GUI
 * `sudo tasksel`
-* time autom.
+* set data & time automatically
   ```CMD
   systemd --version
   # systemd 252
@@ -466,9 +466,11 @@ mplayer tv://
   sudo apt-get autoremove ntp chrony openntpd
   sudo apt-get install systemd-timesyncd
   systemctl status systemd-timesyncd.service
+  # ● systemd-timesyncd.service - Network Time Synchronization
   timedatectl status
+  sudo apt install lsof
   sudo lsof -i
-  # no ntp service (OK)
+  # ntp service - not in the list (OK)
   ```
 * locales UTF-8 ... de_DE ru_RU en_EN
   ```CMD
