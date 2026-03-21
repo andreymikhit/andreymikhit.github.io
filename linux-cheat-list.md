@@ -427,6 +427,7 @@ mplayer tv://
   ```
   
 ### Usefull
+* Test internet: https://yandex.ru/internet
 * `apt install firmware-linux`
 * `apt install gparted`
 * `apt install openssh-server`
