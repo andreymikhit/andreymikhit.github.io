@@ -190,8 +190,7 @@ sudo systemctl start bluetooth
 ```
 
 * Facetimehd
-driver:
-https://support.apple.com/en-us/106461
+* [Download driver from support,apple](https://support.apple.com/en-us/106461)
 ```cmd
 lspci -v
 #Broadcom Inc. 720p FaceTime HD Camera
