@@ -201,7 +201,7 @@ git clone https://github.com/patjak/facetimehd.git
 cd facetimehd/
 make
 sudo checkinstall
-sudo make install
+or try $sudo make install
 sudo depmod
 sudo modprobe facetimehd
 sudo apt install mplayer
