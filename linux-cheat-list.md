@@ -176,6 +176,12 @@ sudo apt install wpasupplicant
 sudo apt install linux-image-$(uname -r|sed 's,[^-]*-[^-]*-,,') linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') broadcom-sta-dkms
 sudo modprobe -r b44 b43 b43legacy ssb brcmsmac bcma
 sudo apt install network-manager-vpnc vpnc
+#if not working, try this to fix:
+sudo apt install network-manager plasma-nm
+sudo systemctl restart NetworkManager
+sudo systemctl status NetworkManager
+sudo systemctl enable NetworkManager
+sudo reboot
 ```
 
 * Bluetooth
@@ -190,8 +196,8 @@ sudo systemctl start bluetooth
 ```
 
 * Facetimehd
-[Driver support.apple](https://support.apple.com/en-us/106461)
 ```cmd
+[Driver support.apple](https://support.apple.com/en-us/106461)
 lspci -v
 #Broadcom Inc. 720p FaceTime HD Camera
 #steps to install Facetimehd:
@@ -207,22 +213,19 @@ sudo modprobe facetimehd
 sudo apt install mplayer
 mplayer tv://
 #it works...
-
-# if not work, try this:
+#if not working, try this to fix:
 sudo apt --fix-broken install
 sudo apt install intel-microcode
-and remove and reinstall facetime
+#remove and reinstall facetime
 sudo dpkg -r facetimehd
 sudo apt autoremove
 sudo rm -r facetimehd
-
 sudo apt install git cpio curl xz-utils
 sudo su - && cd /usr/local/src
 git clone https://github.com/patjak/facetimehd-firmware.git && cd facetimehd-firmware
 make && make install
 exit
-
-# Then, install the driver and color profiles:
+#then, install the driver and color profiles:
 unzip facetimehd-dkms_0.1_all-20221111.zip -d facetimehd && cd facetimehd
 sudo dpkg -i facetimehd-dkms_0.1_all-20221111.deb
 sudo cp Color\ Profiles/*.dat /usr/lib/firmware/facetimehd
@@ -231,19 +234,16 @@ sudo cp Color\ Profiles/*.dat /usr/lib/firmware/facetimehd
 * Apple Keyboard
 ```cmd
 sudo dpkg-reconfigure keyboard-configuration
-
-# This will change the config file /etc/default/keyboard into something like this:
+#this will change the config file /etc/default/keyboard into something like this:
 XKBMODEL="apple_laptop"
 XKBLAYOUT="us"
 XKBVARIANT="mac"
 XKBOPTIONS="terminate:ctrl_alt_bksp"
-
-# or another example:
+#or:
 XKBMODEL="pc105"
 XKBLAYOUT="fr"
 XKBVARIANT="mac"
 XKBOPTIONS="lv3:rwin_switch"
-
 # Default behaviour
 'fn'+'Enter' -> Insert
 'fn'+'Backspace' -> Delete
