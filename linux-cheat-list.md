@@ -161,7 +161,7 @@ bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/EFI/REFIND/refind_x64.e
 
 ### Macbook <-> Linux
 
-* Show PC modell
+* Show Mac modell
 ```cmd
 sudo dmidecode -s system-product-name
 ```
@@ -190,7 +190,7 @@ sudo systemctl start bluetooth
 ```
 
 * Facetimehd
-* [Download driver from support,apple](https://support.apple.com/en-us/106461)
+  [Download driver from support.apple](https://support.apple.com/en-us/106461)
 ```cmd
 lspci -v
 #Broadcom Inc. 720p FaceTime HD Camera
@@ -207,6 +207,52 @@ sudo modprobe facetimehd
 sudo apt install mplayer
 mplayer tv://
 #it works...
+
+#if not, try:
+sudo apt --fix-broken install
+sudo apt install intel-microcode
+and remove and reinstall facetime
+sudo dpkg -r facetimehd
+sudo apt autoremove
+sudo rm -r facetimehd
+
+sudo apt install git cpio curl xz-utils
+sudo su - && cd /usr/local/src
+git clone https://github.com/patjak/facetimehd-firmware.git && cd facetimehd-firmware
+make && make install
+exit
+
+# Then, install the driver and color profiles:
+unzip facetimehd-dkms_0.1_all-20221111.zip -d facetimehd && cd facetimehd
+sudo dpkg -i facetimehd-dkms_0.1_all-20221111.deb
+sudo cp Color\ Profiles/*.dat /usr/lib/firmware/facetimehd
+
+```
+
+* Apple Keyboard
+```
+sudo dpkg-reconfigure keyboard-configuration
+
+# This will change the config file /etc/default/keyboard into something like this:
+XKBMODEL="apple_laptop"
+XKBLAYOUT="us"
+XKBVARIANT="mac"
+XKBOPTIONS="terminate:ctrl_alt_bksp"
+
+# or another example:
+XKBMODEL="pc105"
+XKBLAYOUT="fr"
+XKBVARIANT="mac"
+XKBOPTIONS="lv3:rwin_switch"
+
+# Default behaviour
+'fn'+'Enter' -> Insert
+'fn'+'Backspace' -> Delete
+'fn'+'Up' -> PageUp
+'fn'+'Down' -> PageDown
+'fn'+'Left' -> Home
+'fn'+'Right' -> End
+'Clear' -> NumLock
 ```
 
 ### Network
@@ -562,4 +608,4 @@ BCD-Template [1]
 > Благодарность автору 1. [winitpro](https://winitpro.ru/index.php/2014/03/20/repair-bootloader-windows-8-uefi) 2. [remontka.pro](https://remontka.pro/files-integrity-windows-10/)
 
 ---
-_vers. 1.0_
+_vers. 1.1_
