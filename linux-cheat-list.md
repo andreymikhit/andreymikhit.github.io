@@ -190,7 +190,7 @@ sudo systemctl start bluetooth
 ```
 
 * Facetimehd
-  [Download driver from support.apple](https://support.apple.com/en-us/106461)
+[Driver support.apple](https://support.apple.com/en-us/106461)
 ```cmd
 lspci -v
 #Broadcom Inc. 720p FaceTime HD Camera
@@ -208,7 +208,7 @@ sudo apt install mplayer
 mplayer tv://
 #it works...
 
-#if not, try:
+# if not work, try this:
 sudo apt --fix-broken install
 sudo apt install intel-microcode
 and remove and reinstall facetime
@@ -226,11 +226,10 @@ exit
 unzip facetimehd-dkms_0.1_all-20221111.zip -d facetimehd && cd facetimehd
 sudo dpkg -i facetimehd-dkms_0.1_all-20221111.deb
 sudo cp Color\ Profiles/*.dat /usr/lib/firmware/facetimehd
-
 ```
 
 * Apple Keyboard
-```
+```cmd
 sudo dpkg-reconfigure keyboard-configuration
 
 # This will change the config file /etc/default/keyboard into something like this:
