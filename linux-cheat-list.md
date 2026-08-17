@@ -582,6 +582,7 @@ cat /dev/null > ~/.bash_history
 ```CMD
 sudo apt install samba cifs-utils
 ```
+
 * VirtualBox
 ```CMD
 sudo apt install virtualbox
@@ -598,17 +599,20 @@ VBoxManage clonehd cloned.vdi resized.vmdk --format vmdk
 vboxmanage list -l hdds
 GParted
 resize
-# Windows
+```
+
+## Windows
+* VirtualBox
+```CMD
 cd C:\Program files\Oracle\VirtualBox
 VBoxManage modifyhd «C:\Users\NameUser\VirtualBox VMs\Staffcop\Staffcop.vdi» --resize X
-
 #Virtualbox Win:
 #Win+R + diskmgmt.msc
 #Расширить том
 ```
 
 ### Format W95 FAT32 (LBA)
-```
+```CMD
 lsblk   #list disks /sdX
 sudo apt install dosfstools
 sudo umount /dev/sdX1  #my sd-card on disk /dev/sdX
@@ -622,6 +626,7 @@ sudo fdisk -l #W95 FAT32 (LBA)
 ```
 
 ---
+
 ## Windows 10 MRB repair / BCD
 `/media/USER/DISK/Windows/System32/config/`
 
