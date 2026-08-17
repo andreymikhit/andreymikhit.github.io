@@ -505,7 +505,7 @@ XKBOPTIONS="lv3:rwin_switch"
   sudo apt install phpmyadmin -y
   ```
   
-### Usefull
+## Usefull
 * [Test internet: https://yandex.ru/internet](https://yandex.ru/internet)
 ```CMD
 apt install firmware-linux
@@ -583,7 +583,7 @@ cat /dev/null > ~/.bash_history
 sudo apt install samba cifs-utils
 ```
 
-* VirtualBox
+### VirtualBox
 ```CMD
 sudo apt install virtualbox
 sudo apt install virtualbox-ext-pack
@@ -624,8 +624,6 @@ sudo umount /dev/sdX1
 sudo mkfs.vfat -F 32 -s 2 -S 4096 -v /dev/sdX1   # Format to fat32 with a logical sector size is 4096  # -n nameSD
 sudo fdisk -l #W95 FAT32 (LBA)
 ```
-
----
 
 ## Windows 10 MRB repair / BCD
 `/media/USER/DISK/Windows/System32/config/`
