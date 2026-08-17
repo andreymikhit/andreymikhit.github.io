@@ -7,13 +7,19 @@
 * [Download new stable Debian-Linux Live-Distribution](https://www.debian.org/distrib/)
   or Ubuntu, Kali-linux, etc...
 * USB Boot-Disk
-  * `sudo diskutil list`
-  * `sudo diskutil eraseDisk FAT32 USB /dev/disk3`
-  * `sudo diskutil umountDisk /dev/disk3`
-  * `cd Downloads`
-  * `ls -l`
-  * `sudo dd if=./debian-12...iso of=/dev/disk3 bs=5M status=progress`
-  * ... CD, DVD `bs=2048`
+```cmd
+lsblk
+lsblk -d
+#or diskutil
+sudo diskutil list
+#diskno. = <?>
+sudo diskutil eraseDisk FAT32 USB /dev/disk<?>`
+sudo diskutil umountDisk /dev/disk<?>
+cd Downloads`
+ls -l`
+sudo dd if=./debian-12...iso of=/dev/disk<?> bs=2048 status=progress`
+#CD, DVD `bs=2048` or 5M
+```
 
 * Live-CD:
   * `user: user`
@@ -47,11 +53,11 @@
 ### Create a tar archive and split into blocks 4000M (~ 4G)
 ```cmd
 tar -czvf archive.tar.gz /home/disk`
-# or
+#or
 tar -zcvf - file_large.zip | split -b 4000M - files.tar.gz
-# then
+#then
 cat files.tar.gz* | tar -zxv
-# to extract use terminal or mc (midnight commander)
+#to extract use terminal or mc (midnight commander)
 tar -xvf files.tar.gz 
 unzip files.zip
 ```
@@ -65,7 +71,7 @@ unzip files.zip
 * Check with Ncdu
   * Install Ncdu `sudo apt install ncdu`
   * and start `ncdu /`
-  * Clean dir with `d` (to delete). Be carefull!
+  * Clean dir with `d` (to delete). Be careful!
   * `/var/log/journal/`
   * `/var/tmp/`
   * `/var/spool/`
@@ -73,36 +79,45 @@ unzip files.zip
 
 ### PDF
 * PDF convert gs
- * `sudo apt-get install ghostscript libtiff-tools`
- * `ghostscript -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf`
-  * print (300 dpi)
-  * ebook (150 dpi)
-  * screen (75 dpi)
- * `gs -o out.pdf -sDEVICE=pdfwrite -sPageList=1,5,7,12 -f input.pdf output.pdf`
+```cmd
+sudo apt-get install ghostscript libtiff-tools
+ghostscript -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+#print (300 dpi)
+#ebook (150 dpi)
+#screen (75 dpi)
+gs -o out.pdf -sDEVICE=pdfwrite -sPageList=1,5,7,12 -f input.pdf output.pdf`
+```
 
 * PDF convert pdftk
- * `sudo apt install pdftk`
- * `pdftk A=input.pdf cat A1-2 A5 A7-8 A11-12 output output.pdf`
-  * A1-2 A5 pages no.
+```cmd
+sudo apt install pdftk
+pdftk A=input.pdf cat A1-2 A5 A7-8 A11-12 output output.pdf
+#A1-2 A5 pages no.
+```
 
 * PDF merge pdftk
- * `pdftk file1.pdf file2.pdf cat output mergedfile.pdf`
+```cmd
+pdftk file1.pdf file2.pdf cat output mergedfile.pdf
+```
 
 * convert tiff to pdf
- * `tiff2pdf -o output.pdf input.tif`
+```cmd
+tiff2pdf -o output.pdf input.tif
+```
 
 ### LaTex / TeX / TeXstudio
 * Install TeXLive
 ```cmd
 sudo apt update && sudo apt upgrade
 sudo apt install texlive
-$ 339 M
+#339 M
 sudo apt install texlive-latex-extra -y
-$ 60+ M
+#60+ M
 latex --version
 sudo apt install texlive-lang-cyrillic
 sudo apt install texlive-lang-german
 ```
+
 * Install TeXstudio
 ```cmd
 sudo apt install texstudio
@@ -112,15 +127,32 @@ sudo apt install texstudio
 * Write .tex and compile: F5
 
 ### .iso boot disk
-* `lsblk`
-* `sudo umount /dev/sd<?><?>`
-* `sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync status=progress`
+```cmd
+lsblk
+lsblk -d
+#diskno. = <?>
+sudo umount /dev/sd<?>
+sudo dd bs=4M if=path/to/input.iso of=/dev/sd<?> conv=fdatasync status=progress
+```
 
 ### grub-pc / refind
 * grub
- * `apt install grub-pc`
- * `grub-install /dev/sda`
- * `update-grub`
+```cmd
+apt install grub-pc
+grub-install /dev/sd<?>
+#diskno. = <?>
+update-grub
+#Repair
+sudo update-grub
+sudo nano /etc/default/grub
+# comment #GRUB_CMDLINE_LINUX_DEFAULT=“quiet radeon.cik_support=0 
+sudo apt install --reinstall grub-efi-amd64
+sudo apt --fix-broken install
+# Start in console mode (text)
+sudo systemctl set-default multi-user.target
+# Start in graphical mode (Kde etc.)
+sudo systemctl set-default graphical.target
+```
 
 * boot efi
  * `root@dlinux:/boot/efi/EFI/Debian# cat /boot/efi/EFI/Debian/grub.cfg`
@@ -397,6 +429,7 @@ XKBOPTIONS="lv3:rwin_switch"
   CustomLog /var/log/httpd/example.com-access_log common
   </VirtualHost>
   ```
+
 * Server as a router
 ```cmd
  sudo apt install iptables
@@ -460,12 +493,12 @@ XKBOPTIONS="lv3:rwin_switch"
   ```
   
 * MySQL install
-   ```cmd
-   sudo apt-get install mysql-server mysql-client mysql-common php7.0-mysql
-   mysql_secure_installation
-   mysql -u root -p
-   1234
-   ```
+  ```cmd
+  sudo apt-get install mysql-server mysql-client mysql-common php7.0-mysql
+  mysql_secure_installation
+  mysql -u root -p
+  1234
+  ```
 * Установить php7.4 or higher и phpmyadmin
   ```cmd
   sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-json
@@ -473,116 +506,122 @@ XKBOPTIONS="lv3:rwin_switch"
   ```
   
 ### Usefull
-* Test internet: https://yandex.ru/internet
-* `apt install firmware-linux`
-* `apt install gparted`
-* `apt install openssh-server`
-* `apt install mc`
-* `apt install putty`
-* `apt install build-essential libssl-dev libffi-dev python3-dev python3 pandas`
-* `pip install pandas`
-* `sudo apt search network-manager-vpnc`
-* `sudo apt install vpnc`
-* `sudo apt install network-manager-openconnect`
-* `sudo apt search network-manager`
-* `sudo apt install sane-utils`
-* `sudo apt install alien`
-* `sudo dpkg -i PACKAGE.deb`
-* `sudo dpkg -i PACKAGE.deb`
+* [Test internet: https://yandex.ru/internet](https://yandex.ru/internet)
+```CMD
+apt install firmware-linux
+apt install gparted
+apt install openssh-server
+apt install mc
+apt install putty
+apt install build-essential libssl-dev libffi-dev python3-dev python3 pandas
+pip install pandas
+sudo apt install sane-utils
+sudo apt install alien
+sudo dpkg -i PACKAGE.deb
+gunzip GZTARFILE.tar.gz
+tar -xvjf TARFILE.tar.gz
+sudo ./install.sh
+```
 * list
-* `dpkg -l | grep ProgName`
+```CMD
+dpkg -l | grep ProgName
+```
 * remove
-* `sudo dpkg -P ProgName1`
+```CMD
+sudo dpkg -P ProgName1
+```
 * dpkg Package if failure / errors 
-* `sudo dpkg -i --force-all PACKAGE.deb`
-* `sudo dpkg --configure -a`
-* `sudo apt-get install -f`
-* `sudo autoremove PACKAGE`
-* `sudo purge PACKAGE`
-* `gunzip GZTARFILE.tar.gz`
-* `tar -xvjf TARFILE.tar.gz`
-* `sudo ./install.sh`
+```CMD
+sudo dpkg -i --force-all PACKAGE.deb
+sudo dpkg --configure -a
+sudo apt-get install -f
+sudo autoremove PACKAGE
+sudo purge PACKAGE
+```
 * Reconfig. Desktop / Server / GUI
-* `sudo tasksel`
-* set data & time automatically
-  ```CMD
-  systemd --version
-  # systemd 252
-  cat /etc/timezone
-  cat /etc/localtime
-  sudo apt-get autoremove ntp chrony openntpd
-  sudo apt-get install systemd-timesyncd
-  systemctl status systemd-timesyncd.service
-  # ● systemd-timesyncd.service - Network Time Synchronization
-  timedatectl status
-  sudo apt install lsof
-  sudo lsof -i
-  # ntp service - not in the list (OK)
-  ```
+```CMD
+sudo tasksel
+set data & time automatically
+systemd --version
+# systemd 252
+cat /etc/timezone
+cat /etc/localtime
+sudo apt-get autoremove ntp chrony openntpd
+sudo apt-get install systemd-timesyncd
+systemctl status systemd-timesyncd.service
+# ● systemd-timesyncd.service - Network Time Synchronization
+timedatectl status
+sudo apt install lsof
+sudo lsof -i
+ntp service - not in the list (OK)
+```
 * locales UTF-8 ... de_DE ru_RU en_EN
-  ```CMD
-  sudo dpkg-reconfigure locales
-  sudo dpkg-reconfigure keyboard-configuration`
-  sudo service keyboard-setup restart`
-  sudo nano /etc/default/keyboard`
-  sudo setxkbmap de`
-  sudo setxkbmap ru
-  ```
-* `sudo apt update`
-* `sudo nano /etc/apt/sources.list`
-* `sudo apt update`
+```CMD
+sudo dpkg-reconfigure locales
+sudo dpkg-reconfigure keyboard-configuration
+sudo service keyboard-setup restart
+sudo nano /etc/default/keyboard
+sudo setxkbmap de
+sudo setxkbmap ru
+```
+* sources.list
+```CMD
+sudo nano /etc/apt/sources.list
+sudo apt update
+```
 * history bash show / copy / delete
-  ```CMD
-  history 1000
-  cat ~/.bash_history
-  clear
-  history -c
-  cp ~/.bash_history ~/bash_history-bak_2025-4
-  cat /dev/null > ~/.bash_history
-  ```
+```CMD
+history 1000
+cat ~/.bash_history
+clear
+history -c
+cp ~/.bash_history ~/bash_history-bak_2025-4
+cat /dev/null > ~/.bash_history
+```
 * samba / NAS
-* `sudo apt install samba cifs-utils`
+```CMD
+sudo apt install samba cifs-utils
+```
 * VirtualBox
-  ```CMD
-  sudo apt install virtualbox
-  sudo apt install virtualbox-ext-pack
-  #https://www.virtualbox.org/wiki/Downloads
-  #Resize the VDI image to MB-SIZE
-  cd /home/.../VirtualBox/Your_disk.vdi
-  VBoxManage modifyhd Your_disk.vdi –resize size_in_Mb
-  #Clone the VMDK image to VDI format
-  VBoxManage clonehd source.vmdk cloned.vdi --format vdi
-  #Clone back to VMDK format
-  VBoxManage clonehd cloned.vdi resized.vmdk --format vmdk
-  #Virtualbox Linux
-  vboxmanage list -l hdds
-  GParted
-  resize
-  # Windows
-  cd C:\Program files\Oracle\VirtualBox
-  VBoxManage modifyhd «C:\Users\NameUser\VirtualBox VMs\Staffcop\Staffcop.vdi» --resize X
-  ...
-  #Virtualbox Win:
-  Win+R + diskmgmt.msc
-  Расширить том
-  ```
+```CMD
+sudo apt install virtualbox
+sudo apt install virtualbox-ext-pack
+#https://www.virtualbox.org/wiki/Downloads
+#Resize the VDI image to MB-SIZE
+cd /home/.../VirtualBox/Your_disk.vdi
+VBoxManage modifyhd Your_disk.vdi –resize size_in_Mb
+#Clone the VMDK image to VDI format
+VBoxManage clonehd source.vmdk cloned.vdi --format vdi
+#Clone back to VMDK format
+VBoxManage clonehd cloned.vdi resized.vmdk --format vmdk
+#Virtualbox Linux
+vboxmanage list -l hdds
+GParted
+resize
+# Windows
+cd C:\Program files\Oracle\VirtualBox
+VBoxManage modifyhd «C:\Users\NameUser\VirtualBox VMs\Staffcop\Staffcop.vdi» --resize X
+
+#Virtualbox Win:
+#Win+R + diskmgmt.msc
+#Расширить том
+```
 
 ### Format W95 FAT32 (LBA)
-  ```
-  lsblk   #list disks /sdX
-  sudo apt install dosfstools
-  sudo umount /dev/sdX1  #my sd-card on disk /dev/sdX
-  sudo fdisk /dev/sdX
-  # o (Enter) - d (delete partition & Enter) - n (Enter) - p (Enter) - ...
-  ... - t (Enter) - c (W95 FAT32 (LBA) & Enter) - w (write & Enter)
-  # -c set to W95 FAT32 (LBA)
-  sudo umount /dev/sdX1
-  sudo mkfs.vfat -F 32 -s 2 -S 4096 -v /dev/sdX1   # Format to fat32 with a logical sector size is 4096  # -n nameSD
-  sudo fdisk -l #W95 FAT32 (LBA)
-  ```
+```
+lsblk   #list disks /sdX
+sudo apt install dosfstools
+sudo umount /dev/sdX1  #my sd-card on disk /dev/sdX
+sudo fdisk /dev/sdX
+# o (Enter) - d (delete partition & Enter) - n (Enter) - p (Enter) - ...
+... - t (Enter) - c (W95 FAT32 (LBA) & Enter) - w (write & Enter)
+# -c set to W95 FAT32 (LBA)
+sudo umount /dev/sdX1
+sudo mkfs.vfat -F 32 -s 2 -S 4096 -v /dev/sdX1   # Format to fat32 with a logical sector size is 4096  # -n nameSD
+sudo fdisk -l #W95 FAT32 (LBA)
+```
 
 ---
-
 ## Windows 10 MRB repair / BCD
 `/media/USER/DISK/Windows/System32/config/`
 
