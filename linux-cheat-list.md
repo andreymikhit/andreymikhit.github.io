@@ -290,7 +290,9 @@
   'Clear' -> NumLock
   ```
 
-### Graphics / Nvidia older gr.cards
+### Graphics
+
+* Nvidia older gr.cards Linux
   ```cmd
   # (!) Be careful!
   # Nvidia
