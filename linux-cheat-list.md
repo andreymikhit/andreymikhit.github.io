@@ -291,11 +291,9 @@
   ```
 
 ### Graphics
-
-* Nvidia older gr.cards Linux
+* Nvidia in Linux +older gr.cards
   ```cmd
   # (!) Be careful!
-  # Nvidia
   # add to source.list ... main contrib non-free non-free-firmware ...
   sudo nano /etc/apt/sources.list
   # then save, close and update:
@@ -307,13 +305,13 @@
   sudo apt install nvidia-driver nvidia-settings
   sudo apt-cache policy nvidia-driver
   # (!) for older cards nvidia-detect shows: Your card is only supported by the 390 legacy drivers series, which is only available up to bullseye.
-  * need to install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx
+  # need to install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx
   # at first add to source.list non-stable sid source for NVIDIA legacy-390xx old gr.cards (it works with Debian trixie)
   sudo nano /etc/apt/sources.list
-  # ``` [9](https://www.linux.org.ru/forum/general/18281241)
+  #(https://www.linux.org.ru/forum/general/18281241)
   deb http://deb.debian.org/debian/ sid main contrib non-free
   deb-src http://deb.debian.org/debian/ sid main contrib non-free
-  # then save, close and update:
+  #then save, close and update:
   sudo apt update
   sudo apt install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx -y
   # then I commented out for the future the sid source in source.list like:
