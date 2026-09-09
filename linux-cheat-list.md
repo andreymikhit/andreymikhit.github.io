@@ -155,14 +155,18 @@ sudo systemctl set-default graphical.target
 ```
 
 * boot efi
- * `root@dlinux:/boot/efi/EFI/Debian# cat /boot/efi/EFI/Debian/grub.cfg`
- * `search.fs_uuid disk-0000-111c-b222-9a...b root hd0,msdos4`
- * `set prefix=($root)'/boot/grub'`
- * `configfile $prefix/grub.cfg`
+```cmd
+root@dlinux:/boot/efi/EFI/Debian# cat /boot/efi/EFI/Debian/grub.cfg
+search.fs_uuid disk-0000-111c-b222-9a...b root hd0,msdos4
+set prefix=($root)'/boot/grub
+configfile $prefix/grub.cfg
+```
 
 * refind
- * `apt search refind` or download
- * `bash /home/../../refind-bin-0.14.0.2/refind-install`
+```cmd
+apt search refind` or download
+bash /home/../../refind-bin-0.14.0.2/refind-install`
+```
 
 * refind / MacBook <-> Windows <-> Linux
 ```cmd
@@ -286,224 +290,273 @@ XKBOPTIONS="lv3:rwin_switch"
 'Clear' -> NumLock
 ```
 
+### Graphics / Nvidia older gr.cards
+```cmd
+# (!) Be careful!
+# Nvidia
+# add to source.list ... main contrib non-free non-free-firmware ...
+sudo nano /etc/apt/sources.list
+# then save, close and update:
+sudo apt update
+sudo apt install linux-headers-$(uname -r) build-essential dkms
+sudo apt install nvidia-detect
+nvidia-detect
+# new cards:
+sudo apt install nvidia-driver nvidia-settings
+sudo apt-cache policy nvidia-driver
+# (!) for older cards nvidia-detect shows: Your card is only supported by the 390 legacy drivers series, which is only available up to bullseye.
+* need to install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx
+# at first add to source.list non-stable sid source for NVIDIA legacy-390xx old gr.cards (it works with Debian trixie)
+sudo nano /etc/apt/sources.list
+# ``` [9](https://www.linux.org.ru/forum/general/18281241)
+deb http://deb.debian.org/debian/ sid main contrib non-free
+deb-src http://deb.debian.org/debian/ sid main contrib non-free
+# then save, close and update:
+sudo apt update
+sudo apt install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx -y
+# then I commented out for the future the sid source in source.list like:
+# deb http://deb.debian.org/debian/ sid main contrib non-free
+# deb-src http://deb.debian.org/debian/ sid main contrib non-free
+# then save, close and reboot your PC:
+sudo reboot
+# it works, if you get a real gr. card data like:  NVIDIA-SMI 390... Driver Version: 390... / OpenGL renderer string: Quadro ... by typing in terminal:
+nvidia-smi
+nvidia-settings
+glxinfo | grep "OpenGL renderer"
+lsmod | grep nvidia
+# it works with X11.
+# echo $XDG_SESSION_TYPE -> wayland: See other instructions... like in [unishell.ru]
+# ---
+# Remove NVIDIA driver and roll back to Nouveau:
+dpkg -l | grep nvidia
+sudo apt purge nvidia-driver nvidia-settings nvidia-kernel-* nvidia-legacy-*
+sudo apt autoremove
+sudo apt purge cuda-keyring
+sudo apt update
+sudo rm -f /etc/modprobe.d/blacklist-nouveau.conf
+sudo update-initramfs -u
+sudo reboot
+```
+> Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo)
+
 ### Network
 * Tools
- ```cmd
- su -s
- ip addr
- ip a
- ping ip-address
- netstat -tl (прослушать TCP-порты)
- dig geekbrains.ru (службы DNS)
- nmap geekbrains.ru
- nmcli c show
- more /etc/network/interfaces
- # Ctrl + c
- ```
+```cmd
+su -s
+ip addr
+ip a
+ping ip-address
+netstat -tl (прослушать TCP-порты)
+dig geekbrains.ru (службы DNS)
+nmap geekbrains.ru
+nmcli c show
+more /etc/network/interfaces
+# Ctrl + c
+```
 
 * if not exist, than:
- ```cmd
- cat /etc/network/interfaces
- apt install ifupdown
- nano /etc/network/interfaces
- service networking restart
- ip addr
- cat /etc/resolv.conf
- ```
+```cmd
+cat /etc/network/interfaces
+apt install ifupdown
+nano /etc/network/interfaces
+service networking restart
+ip addr
+cat /etc/resolv.conf
+```
 
 * Ручная настройка сети:
- ```cmd
- ip link set enp0s3 up
- ip addr add 192.IP.../255.255.255.0 broadcast 192.IP... dev enp0s3
- ip route add default via 192.IP...
- ip a s
- ```
+```cmd
+ip link set enp0s3 up
+ip addr add 192.IP.../255.255.255.0 broadcast 192.IP... dev enp0s3
+ip route add default via 192.IP...
+ip a s
+```
 
- * Ручная настройка DNS:
- ```cmd
- dig geekbrains.ru
- ping -c 4 geekbrains.ru
- nano /etc/resolv.conf
- ```
+* Ручная настройка DNS:
+```cmd
+dig geekbrains.ru
+ping -c 4 geekbrains.ru
+nano /etc/resolv.conf
+```
 
 * DHCP, проверить получение адреса
- ```cmd
- cat /etc/network/interfaces
- auto enp0s3 … dhcp
- service networking restart
- dig geekbrains.ru
- ping -c 4 geekbrains.ru
- ```
+```cmd
+cat /etc/network/interfaces
+auto enp0s3 … dhcp
+service networking restart
+dig geekbrains.ru
+ping -c 4 geekbrains.ru
+```
 
 * Изменить адрес DNS
- ```cmd
- nano /etc/resolv.conf
- nano /etc/network/interfaces
- service networking restart
- dig geekbrains.ru
- ping -c 4 geekbrains.ru
- ```
+```cmd
+nano /etc/resolv.conf
+nano /etc/network/interfaces
+service networking restart
+dig geekbrains.ru
+ping -c 4 geekbrains.ru
+```
 
 ### Server Apache2 Mysql Phpmyadmin Ufw Security
 * Apache2 Serv `sudo apt install apache2`
 * Apache2 Serv Security
 * [Apache HTTP Server vulnerabilities](https://httpd.apache.org/security)
-  ```cmd
-  $ nano /etc/apache2/apache2.conf (Debian/Ubuntu)
-  ServerSignature Off
-  ServerTokens Prod
-  $ service apache2 restart (Debian/Ubuntu)
-  # Indexes off - apache2.conf
-  <Directory /var/www/html>
-  Options -Indexes
-  </Directory>
-  $ httpd -v
-  # update
-  apt-get install apache2
-  # Deactivate with comments # :  mod_imap, mod_include, mod_info, mod_userdir, mod_autoindex, ...
-  # grep LoadModule /etc/httpd/conf/httpd.conf
-  # have to place corresponding 'LoadModule' lines at this location so the
-  # LoadModule foo_module modules/mod_foo.so
-  LoadModule auth_basic_module modules/mod_auth_basic.so
-  ...
-  # separate group / user for Apache2
-  # /etc/httpd/conf/httpd.conf 
-  # groupadd http_web
-  # useradd -d /var/www/ -g http-web -s /bin/nologin http_web
-  User http_web
-  Group http_web
-  # httpd.conf.
-  <Directory />
-  Options None
-  Order deny,allow
-  Deny from all
-  </Directory>
-  $ sudo apt-get install libapache2-modsecurity
-  $ sudo a2enmod mod-security
-  $ sudo /etc/init.d/apache2 force-reload
-  # Deactivate links .htaccess
-  Options -FollowSymLinks
-  # Enable symbolic links
-  Options +FollowSymLinks
-  # mod_include
-  Options -Includes
-  Options -ExecCGI
-  /var/www/html/web».
-  <Directory "/var/www/html/web">
-  Options -Includes -ExecCGI
-  </Directory>
-  #  LimitRequestBody 0 (unlimited) / 500К / 2G
-  <Directory "/var/www/myweb/user_uploads">
-  LimitRequestBody 512000
-  </Directory>
-  # DDOS
-  TimeOut
-  MaxClients
-  KeepAliveTimeout
-  LimitRequestFields 100 (10 ?)
-  LimitRequestFieldSize
-  # log mod_log_config
-  <VirtualHost *:80>
-  DocumentRoot /var/www/html/example.com/
-  ServerName www.example.com
-  DirectoryIndex index.htm index.html index.php
-  ServerAlias example.com
-  ErrorDocument 404 /story.php
-  ErrorLog /var/log/httpd/example.com_error_log
-  CustomLog /var/log/httpd/example.com_access_log combined
-  </VirtualHost>
-  # SSL mod_ssl
-  # openssl genrsa -des3 -out example.com.key 1024
-  # openssl req -new -key example.com.key -out exmaple.csr
-  # openssl x509 -req -days 365 -in example.com.com.csr -signkey example.com.com.key -out example.com.com.crt
-  # add cert to conf Appache
-  <VirtualHost 172.16.25.125:443>
-  SSLEngine on
-  SSLCertificateFile /etc/pki/tls/certs/example.com.crt
-  SSLCertificateKeyFile /etc/pki/tls/certs/example.com.key
-  SSLCertificateChainFile /etc/pki/tls/certs/sf_bundle.crt
-  ServerAdmin ravi.saive@example.com
-  ServerName example.com
-  DocumentRoot /var/www/html/example/
-  ErrorLog /var/log/httpd/example.com-error_log
-  CustomLog /var/log/httpd/example.com-access_log common
-  </VirtualHost>
-  ```
+```cmd
+$ nano /etc/apache2/apache2.conf (Debian/Ubuntu)
+ServerSignature Off
+ServerTokens Prod
+$ service apache2 restart (Debian/Ubuntu)
+# Indexes off - apache2.conf
+<Directory /var/www/html>
+Options -Indexes
+</Directory>
+$ httpd -v
+# update
+apt-get install apache2
+# Deactivate with comments # :  mod_imap, mod_include, mod_info, mod_userdir, mod_autoindex, ...
+# grep LoadModule /etc/httpd/conf/httpd.conf
+# have to place corresponding 'LoadModule' lines at this location so the
+# LoadModule foo_module modules/mod_foo.so
+LoadModule auth_basic_module modules/mod_auth_basic.so
+...
+# separate group / user for Apache2
+# /etc/httpd/conf/httpd.conf 
+# groupadd http_web
+# useradd -d /var/www/ -g http-web -s /bin/nologin http_web
+User http_web
+Group http_web
+# httpd.conf.
+<Directory />
+Options None
+Order deny,allow
+Deny from all
+</Directory>
+$ sudo apt-get install libapache2-modsecurity
+$ sudo a2enmod mod-security
+$ sudo /etc/init.d/apache2 force-reload
+# Deactivate links .htaccess
+Options -FollowSymLinks
+# Enable symbolic links
+Options +FollowSymLinks
+# mod_include
+Options -Includes
+Options -ExecCGI
+/var/www/html/web».
+<Directory "/var/www/html/web">
+Options -Includes -ExecCGI
+</Directory>
+#  LimitRequestBody 0 (unlimited) / 500К / 2G
+<Directory "/var/www/myweb/user_uploads">
+LimitRequestBody 512000
+</Directory>
+# DDOS
+TimeOut
+MaxClients
+KeepAliveTimeout
+LimitRequestFields 100 (10 ?)
+LimitRequestFieldSize
+# log mod_log_config
+<VirtualHost *:80>
+DocumentRoot /var/www/html/example.com/
+ServerName www.example.com
+DirectoryIndex index.htm index.html index.php
+ServerAlias example.com
+ErrorDocument 404 /story.php
+ErrorLog /var/log/httpd/example.com_error_log
+CustomLog /var/log/httpd/example.com_access_log combined
+</VirtualHost>
+# SSL mod_ssl
+# openssl genrsa -des3 -out example.com.key 1024
+# openssl req -new -key example.com.key -out exmaple.csr
+# openssl x509 -req -days 365 -in example.com.com.csr -signkey example.com.com.key -out example.com.com.crt
+# add cert to conf Appache
+<VirtualHost 172.16.25.125:443>
+SSLEngine on
+SSLCertificateFile /etc/pki/tls/certs/example.com.crt
+SSLCertificateKeyFile /etc/pki/tls/certs/example.com.key
+SSLCertificateChainFile /etc/pki/tls/certs/sf_bundle.crt
+ServerAdmin ravi.saive@example.com
+ServerName example.com
+DocumentRoot /var/www/html/example/
+ErrorLog /var/log/httpd/example.com-error_log
+CustomLog /var/log/httpd/example.com-access_log common
+</VirtualHost>
+```
 
 * Server as a router
 ```cmd
- sudo apt install iptables
- modprobe iptable_nat
- echo 1 > /proc/sys/net/ipv4/ip_forward
- iptables -t nat -A POSTROUTING -o enp3s0 -j MASQUERADE
- iptables -A FORWARD -i enp1s0 -j ACCEPT
- nano /etc/modules
- iptable_nat
- nano /etc/sysctl.conf
- net.ipv4.ip_forward=1
- apt install iptables-persistent
- iptables-save > /etc/iptables/rules.v4
- ping 8.8.8.8
- ping 1.1.1.1
- iptables -t nat -L
+sudo apt install iptables
+modprobe iptable_nat
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o enp3s0 -j MASQUERADE
+iptables -A FORWARD -i enp1s0 -j ACCEPT
+nano /etc/modules
+iptable_nat
+nano /etc/sysctl.conf
+net.ipv4.ip_forward=1
+apt install iptables-persistent
+iptables-save > /etc/iptables/rules.v4
+ping 8.8.8.8
+ping 1.1.1.1
+iptables -t nat -L
 ```
 
 * Security scan
-   ```cmd
-   sudo apt install nmap
-   nmap -O ip-address/homepage
-   nmap -sV ip-address/homepage
-   nmap -A -T4 ip-address/homepage
-   dpkg -l
-   cd ~
-   find . -maxdepth 1 -type f -name ".*"
-   sudo netstat -tulpn   # open ports
-   ```
+```cmd
+sudo apt install nmap
+nmap -O ip-address/homepage
+nmap -sV ip-address/homepage
+nmap -A -T4 ip-address/homepage
+dpkg -l
+cd ~
+find . -maxdepth 1 -type f -name ".*"
+sudo netstat -tulpn   # open ports
+```
 
 * Firewall ufw:
-  ```cmd
-  sudo apt install ufw
-  sudo ufw enable
-  sudo ufw enable status
-  sudo ufw app list
-  sudo ufw default deny incoming   # sudo ufw default allow incoming
-  sudo ufw default allow outgoing
-  sudo ufw status verbose 
-  sudo ufw disable   #disable Firewall
-  sudo ufw status numbered
-  sudo ufw allow OpenSSH
-  sudo ufw reset   # reset Firewall
-  ```
+```cmd
+sudo apt install ufw
+sudo ufw enable
+sudo ufw enable status
+sudo ufw app list
+sudo ufw default deny incoming   # sudo ufw default allow incoming
+sudo ufw default allow outgoing
+sudo ufw status verbose 
+sudo ufw disable   #disable Firewall
+sudo ufw status numbered
+sudo ufw allow OpenSSH
+sudo ufw reset   # reset Firewall
+```
 
 * Linux DrWeb Antivir
-  [Download DrWeb](https://www.drweb.by/saas/support/install/)
-  Далее
-  ```cmd
-  wget -O - http://repo.drweb.com/drweb/drweb.key | apt-key add -
-  sudo nano /etc/apt/sources.list
-   ```
-  [Add to source list](https://repo.drweb.com/drweb/debian/dists/11.1/non-free/binary-amd64/)
-  ```cmd
-  deb https://repo.drweb.com/drweb/debian 11.1 non-free
-   ```
-  Istall demo per. 30 d
-  ```cmd
-  sudo apt update
-  sudo apt install drweb-workstations
-  ```
+[Download DrWeb](https://www.drweb.by/saas/support/install/)
+```cmd
+wget -O - http://repo.drweb.com/drweb/drweb.key | apt-key add -
+sudo nano /etc/apt/sources.list
+```
+[Add to source list](https://repo.drweb.com/drweb/debian/dists/11.1/non-free/binary-amd64/)
+```cmd
+deb https://repo.drweb.com/drweb/debian 11.1 non-free
+```
+Istall demo per. 30 d
+```cmd
+sudo apt update
+sudo apt install drweb-workstations
+```
   
 * MySQL install
-  ```cmd
-  sudo apt-get install mysql-server mysql-client mysql-common php7.0-mysql
-  mysql_secure_installation
-  mysql -u root -p
-  1234
-  ```
+```cmd
+sudo apt-get install mysql-server mysql-client mysql-common php7.0-mysql
+mysql_secure_installation
+mysql -u root -p
+1234
+```
+
 * Установить php7.4 or higher и phpmyadmin
-  ```cmd
-  sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-json
-  sudo apt install phpmyadmin -y
-  ```
+```cmd
+sudo apt-get -y install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-json
+sudo apt install phpmyadmin -y
+```
   
 ## Usefull
 * [Test internet: https://yandex.ru/internet](https://yandex.ru/internet)
@@ -647,6 +700,5 @@ BCD-Template [1]
   * `bcdedit /deletevalue {default} truncatememory` 
 
 > Благодарность автору 1. [winitpro](https://winitpro.ru/index.php/2014/03/20/repair-bootloader-windows-8-uefi) 2. [remontka.pro](https://remontka.pro/files-integrity-windows-10/)
-
 ---
 _vers. 1.1_
