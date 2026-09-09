@@ -363,12 +363,18 @@
   sudo apt install xserver-xorg-video-nouveau
   sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
   ```
-> Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo) [losst.pro](https://losst.pro/ustanovka-drajvera-nvidia-v-debian-10)
+> Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo)  [losst.pro](https://losst.pro/ustanovka-drajvera-nvidia-v-debian-10)
 
 * ATI Radeon HD 5770 in Linux (Mac)
 ```CMD
-apt install firmware-linux firmware-linux-nonfree libdrm-amdgpu1 xserver-xorg-video-amdgpu
+# https://www.amd.com/en/support/download/drivers.html
+# Download driver for Linux and install ... .zip or .deb
+# https://drivers.amd.com/relnotes/amd-catalyst-graphics-driver-installer-notes-for-linux-operating-systems.pdf
+# sudo dpkg -l amdgpu-pro
+sudo apt install firmware-linux firmware-linux-nonfree libdrm-amdgpu1 xserver-xorg-video-amdgpu
+...
 ```
+> Thank's [linuxconfig.org](https://linuxconfig.org/how-to-install-the-latest-amd-drivers-on-debian-10-buster)  [losst.pro](https://losst.pro/ustanovka-drajvera-amd-v-ubuntu)
 
 ### Network
 * Tools
