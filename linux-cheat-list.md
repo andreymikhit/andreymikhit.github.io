@@ -52,12 +52,12 @@
 
 ### Create a tar archive and split into blocks 4000M (~ 4G)
   ```cmd
-  tar -czvf archive.tar.gz /home/disk`
-  #or
+  tar -czvf archive.tar.gz /home/disk
+  # or
   tar -zcvf - file_large.zip | split -b 4000M - files.tar.gz
-  #then
+  # then
   cat files.tar.gz* | tar -zxv
-  #to extract use terminal or mc (midnight commander)
+  # to extract use terminal or mc (midnight commander)
   tar -xvf files.tar.gz 
   unzip files.zip
   ```
@@ -636,6 +636,7 @@
   ```
 
 ### VirtualBox
+* Linux
   ```CMD
   sudo apt install virtualbox
   sudo apt install virtualbox-ext-pack
@@ -693,9 +694,11 @@
 В некоторых случаях после восстановления BCD загрузчика, при загрузке Windows появляется ошибка BAD SYSTEM CONFIG INFO . Чтобы исправить ошибку:
 * Убедитесь, что вы не вносили недавно изменения в настройки UEFI
 * Загрузитесь с установочной/загрузочной флешки и измените конфигурацию загрузчика командами:
-  * `bcdedit /deletevalue {default} numproc`
-  * `bcdedit /deletevalue {default} truncatememory` 
-
+  ```CMD
+  bcdedit /deletevalue {default} numproc
+  bcdedit /deletevalue {default} truncatememory
+  ```
 > Благодарность автору 1. [winitpro](https://winitpro.ru/index.php/2014/03/20/repair-bootloader-windows-8-uefi) 2. [remontka.pro](https://remontka.pro/files-integrity-windows-10/)
+
 ---
 _vers. 1.1_
