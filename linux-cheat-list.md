@@ -306,7 +306,18 @@
   sudo apt-cache policy nvidia-driver
   # (!) for older cards nvidia-detect shows: Your card is only supported by the 390 legacy drivers series, which is only available up to bullseye.
   # need to install nvidia-legacy-390xx-driver nvidia-settings-legacy-390xx
-  # at first add to source.list non-stable sid source for NVIDIA legacy-390xx old gr.cards (it works with Debian trixie)
+  # ---
+  # try to install the bash file from: https://www.nvidia.com/en-us/drivers/
+  # sudo apt install gcc make
+  # sudo systemctl set-default multi-user.target
+  # sudo reboot
+  # cd Downloads
+  # sudo bash NVIDIA-Linux-...run
+  # sudo systemctl set-default graphical.target
+  # sudo systemctl reboot
+  # lspci -k | grep -EA2 "VGA|3D|Display"
+  # ---
+  # or add to source.list non-stable sid source for NVIDIA legacy-390xx old gr.cards (it works with Debian trixie)
   sudo nano /etc/apt/sources.list
   #(https://www.linux.org.ru/forum/general/18281241)
   deb http://deb.debian.org/debian/ sid main contrib non-free
@@ -330,6 +341,8 @@
   # Remove NVIDIA driver and roll back to Nouveau:
   dpkg -l | grep nvidia
   sudo apt purge nvidia-driver nvidia-settings nvidia-kernel-* nvidia-legacy-*
+  sudo dpkg -P $(dpkg -l | grep nvidia-driver | awk '{print $2}')
+  # sudo bash NVIDIA-Linux-...run --uninstall
   sudo apt autoremove
   sudo apt purge cuda-keyring
   sudo apt update
@@ -337,7 +350,25 @@
   sudo update-initramfs -u
   sudo reboot
   ```
-> Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo)
+* If something goes wrong (black screen):
+  ```CMD
+  # Change to console mode (Ctrl + Alt + F3..F4...)
+  sudo apt --fix-broken install
+  # Start in console mode (text)
+  sudo systemctl set-default multi-user.target
+  # Start in graphical mode (Kde etc.)
+  sudo systemctl set-default graphical.target
+  startx
+  # show: https://www.nvidia.com/en-us/drivers/details/242273/
+  sudo apt install xserver-xorg-video-nouveau
+  sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+  ```
+> Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo) [losst.pro](https://losst.pro/ustanovka-drajvera-nvidia-v-debian-10)
+
+* ATI Radeon HD 5770 in Linux (Mac)
+```CMD
+apt install firmware-linux firmware-linux-nonfree libdrm-amdgpu1 xserver-xorg-video-amdgpu
+```
 
 ### Network
 * Tools
@@ -636,7 +667,7 @@
   ```
 
 ### VirtualBox
-* Linux
+* VB Linux
   ```CMD
   sudo apt install virtualbox
   sudo apt install virtualbox-ext-pack
@@ -653,9 +684,7 @@
   GParted
   resize
   ```
-
-## Windows
-* VirtualBox
+* VB Windows
   ```CMD
   cd C:\Program files\Oracle\VirtualBox
   VBoxManage modifyhd «C:\Users\NameUser\VirtualBox VMs\Staffcop\Staffcop.vdi» --resize X
