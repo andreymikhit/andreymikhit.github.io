@@ -362,6 +362,33 @@
   # show: https://www.nvidia.com/en-us/drivers/details/242273/
   sudo apt install xserver-xorg-video-nouveau
   sudo rm /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+  # ..
+  # Downgrade from SID (non-stable) to Stable
+  sudo nano /etc/apt/preferences.d/downgrade
+  # Add to downgrade file without #:
+  #Package: *
+  #Pin: release a=stable
+  #Pin-Priority: 1001
+  sudo apt update
+  sudo apt dist-upgrade
+  sudo apt autoremove
+  sudo apt autoclean
+  sudo apt install -f
+  cd /etc/apt/preferences.d/
+  # rename downgrade to .bak (inactive)
+  sudo mv downgrade downgrade.bak
+  sudo apt update
+  sudo apt install kde-plasma-desktop
+  sudo tasksel
+  # Choose Kde or others ...
+  sudo systemctl status sddm
+  sudo dpkg-reconfigure sddm
+  sudo reboot
+  # .. Cash-clean
+  rm -rf ~/.cache/plasmashell*
+  rm -rf ~/.cache/plasma*
+  # SDDM restart:
+  sudo systemctl restart sddm
   ```
   > Thank's [unishell.ru](https://unishell.ru/ustanovka-drajverov-nvidia-na-debian-13-12-11-podrobnoe-rukovodstvo)  [losst.pro](https://losst.pro/ustanovka-drajvera-nvidia-v-debian-10)
 
@@ -553,7 +580,7 @@
   ```cmd
   sudo apt install ufw
   sudo ufw enable
-  sudo ufw enable status
+  sudo ufw status
   sudo ufw app list
   sudo ufw default deny incoming   # sudo ufw default allow incoming
   sudo ufw default allow outgoing
@@ -570,7 +597,7 @@
   wget -O - http://repo.drweb.com/drweb/drweb.key | apt-key add -
   sudo nano /etc/apt/sources.list
   ```
-  [Add to source list](https://repo.drweb.com/drweb/debian/dists/11.1/non-free/binary-amd64/)
+  [Add to source list](https://repo.drweb.com/drweb/debian/dists/stable/non-free/)
   ```cmd
   deb https://repo.drweb.com/drweb/debian 11.1 non-free
   ```
